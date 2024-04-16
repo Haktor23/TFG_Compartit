@@ -1,0 +1,28 @@
+:root{
+    background-image: url(./assets/bg.jpg);
+    
+}
+
+
+/* Estilo para la barra de desplazamiento */
+::-webkit-scrollbar {
+    width: 12px; /* Ancho de la barra */
+  }
+  
+  /* Estilo para el riel de la barra */
+  ::-webkit-scrollbar-track {
+    background: transparent; /* Color del riel */
+    
+  }
+  
+  /* Estilo para el mango de la barra */
+  ::-webkit-scrollbar-thumb {
+    background: #888; /* Color del mango */
+    border-radius: 20px; /* Radio de borde del mango */
+  }
+  
+  /* Estilo para el mango de la barra al pasar el mouse */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Color del mango al pasar el mouse */
+  }
+  

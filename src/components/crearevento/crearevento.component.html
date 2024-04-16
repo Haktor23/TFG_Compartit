@@ -1,0 +1,148 @@
+<div class="container">
+    <form class="modern-form">
+        <!-- Campo para añadir día, mes y año -->
+        <div class="form-row">
+            <div class="col">
+                <label for="fecha">Fecha:</label>
+                <input type="date" id="fecha" name="fecha" [(ngModel)]="fecha"  required>
+            </div>
+            <div class="col">
+                <label for="hora">Hora:</label>
+                <input type="time" id="hora" name="hora" [(ngModel)]="hora" required>
+            </div>
+        </div>
+
+        <!-- Campo para Nombre del espectáculo -->
+        <label for="nombreEspectaculo">Nombre del espectáculo:</label>
+        <select id="nombreEspectaculo" name="nombreEspectaculo" [(ngModel)]="nombreEspectaculo"  required>
+            <option value="">Seleccionar espectáculo</option>
+            <option value="Suelta de vaquillas">Suelta de vaquillas</option>
+            <option value="Suelta de vaquillas y toro embolado">Suelta de vaquillas y toro embolado</option>
+            <option value="Suelta de vaquillas y toro en puntas">Suelta de vaquillas y toro en puntas</option>
+            <option value="Toro embolado">Toro embolado</option>
+            <option value="Concuso de ganaderia">Concuso de ganaderia</option>
+            <option value="Vaca embolada">Vaca embolada</option>
+            <option value="Toro en cuerda">Toro en cuerda</option>
+            <option value="Concurso de recortadores">Concurso de recortadores</option>
+            <option value="Evento especial">Evento especial</option>
+        </select>
+
+        <!-- Campo para Pueblo y Ubicación -->
+        <div class="form-row">
+            <div class="col">
+                <label for="pueblo">Pueblo:</label>
+                <input type="text" id="pueblo" name="pueblo"  [(ngModel)]="pueblo" required>
+            </div>
+            <div class="col">
+                <label for="ubicacion">Ubicación:</label>
+                <input type="text" id="ubicacion" name="ubicacion" [(ngModel)]="ubicacion" required>
+            </div>
+        </div>
+
+
+    </form>
+
+    <form action="" class="animales modern-form">
+        <div class="animales">
+            <!-- Apartado para Vacas y Toro en puntas -->
+            <div class="form-row">
+                <div class="col">
+                    <label for="vacas">Vacas:</label>
+                    <input type="number" id="vacas" name="vacas" class="numeroanimales" [(ngModel)]="vacas">
+                </div>
+                <div class="col">
+                    <label for="toro">Toros:</label>
+                    <input type="number" id="toro" name="toro" class="numeroanimales" [(ngModel)]="toro">
+                </div>
+
+                 <div class="col">
+                    <label for="capon">Capon:</label>
+                    <input type="number" id="capon" name="capon" class="numeroanimales" [(ngModel)]="capon">
+                </div>
+            </div>
+
+            <!-- Campo para Otros -->
+            <div class="form-group">
+                <label for="otros">Información adicional:</label>
+                <input type="text" id="otros" name="otros" [(ngModel)]="otros">
+            </div>
+            <div class="form-group">
+                <label for="precio">Precio:</label>
+                <input type="number" id="precio" name="precio" [(ngModel)]="precio">
+            </div>
+            <button type="submit" class="btn-submit" (click)="anyadirarray($event)">Guardar</button>
+        </div>
+    </form>
+    <div class="espaciador"></div>
+
+</div>
+<div class="container">
+    <div class="eventoscercanos">
+        @for (evento of eventos; track $index) {
+        <div class="evento">
+            <div class="mostrarfecha"> @if (evento.fecha) {
+                <div class="campo fechacampo">Fecha:</div>
+                <div class="valor fechavalor">{{evento.fecha}}</div>
+                }
+            </div>
+            <div class="mostrardatos">
+                <div class="datos1">
+
+
+                    @if (evento.hora) {
+                    <div class="campo">Hora:</div>
+                    <div class="valor">{{evento.hora}}</div>
+                    }
+                    @if (evento.nombreEspectaculo) {
+                    <div class="campo">Nombre del Espectáculo:</div>
+                    <div class="valor">{{evento.nombreEspectaculo}}</div>
+                    }
+                    @if (evento.pueblo) {
+                    <div class="campo">Pueblo:</div>
+                    <div class="valor">{{evento.pueblo}}</div>
+                    }
+                    @if (evento.ubicacion) {
+                    <div class="campo">Ubicación:</div>
+                    <div class="valor"><a href="{{evento.ubicacion}}">Ubicación en maps</a></div>
+                    }
+                    @if (evento.precio) {
+                    <div class="campo">Precio:</div>
+                    <div class="valor">{{evento.precio}}</div>
+                    }
+                </div>
+                <div class="datos2">
+                    @if (evento.vacas) {
+                    <div class="campo">Vacas:</div>
+                    <div class="valor" >{{evento.vacas}}</div>
+                    }
+                    @if (evento.toro) {
+                    <div class="campo">Toro:</div>
+                    <div class="valor">{{evento.toro}}</div>
+                    }
+                    @if (evento.toroEmbolado) {
+                    <div class="campo">Toro Embolado:</div>
+                    <div class="valor">{{evento.toroEmbolado}}</div>
+                    }
+                    @if (evento.vacaEmbolada) {
+                    <div class="campo">Vaca Embolada:</div>
+                    <div class="valor">{{evento.vacaEmbolada}}</div>
+                    }
+                    @if (evento.toroEnCuerda) {
+                    <div class="campo">Toro en Cuerda:</div>
+                    <div class="valor">{{evento.toroEnCuerda}}</div>
+                    }
+                    @if (evento.capon) {
+                    <div class="campo">Capon:</div>
+                    <div class="valor">{{evento.capon}}</div>
+                    }
+                    @if (evento.otros) {
+                    <div class="campo">Otros:</div>
+                    <div class="valor">{{evento.otros}}</div>
+                    }
+
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+</div>

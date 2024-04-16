@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row-animales">
+        <div class="toros">
+            Contenido de toros
+            <!-- @for (item of items; track $index) {} -->
+        </div>
+        <div class="vacas">
+            @for (vaca of vacas; track $index) {
+                <div class="vaca">
+                    <h3>{{vaca.nombre}}</h3>
+                    <p>{{vaca.edad}}</p>
+                    <p>{{vaca.raza}}</p>
+                    <p>{{vaca.peso}}</p>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<form action="" method="post">
+
+    <label for="nombre">Nombre</label>
+    <input type="text">
+</form>
