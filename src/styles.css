@@ -1,31 +1,38 @@
-:root{
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+  font-family: "Poppins", sans-serif;
+
+  font-style: normal;
   background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    background-image: url(./assets/bg.jpg);
-    
+  background-position: center;
+  background-attachment: fixed;
+  background-image: url(./assets/bg.jpg);
+
 }
 
 
 
 ::-webkit-scrollbar {
-    width: 12px; 
-  }
-  
- 
-  ::-webkit-scrollbar-track {
-    background: transparent; 
-    
-  }
-  
-  /* Estilo para el mango de la barra */
-  ::-webkit-scrollbar-thumb {
-    background: #888; /* Color del mango */
-    border-radius: 20px; /* Radio de borde del mango */
-  }
-  
-  /* Estilo para el mango de la barra al pasar el mouse */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #555; /* Color del mango al pasar el mouse */
-  }
-  
+  width: 12px;
+}
+
+
+::-webkit-scrollbar-track {
+  background: transparent;
+
+}
+
+/* Estilo para el mango de la barra */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  /* Color del mango */
+  border-radius: 20px;
+  /* Radio de borde del mango */
+}
+
+/* Estilo para el mango de la barra al pasar el mouse */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+  /* Color del mango al pasar el mouse */
+}

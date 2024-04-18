@@ -7,7 +7,7 @@ import { FirebaseService } from '../../firebase.service';
   styleUrls: ['./eventos.component.css']
 })
 export class EventosComponent implements OnInit {
-  eventos: any[] = []; // Array para almacenar los eventos
+  eventos: any[] = []; 
 
   constructor(private firebaseService: FirebaseService) {}
 

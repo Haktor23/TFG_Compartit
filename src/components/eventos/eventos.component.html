@@ -1,8 +1,24 @@
 <p>eventos works!</p>
+<div class="container">
 
-@for (item of eventos; track $index) {
-    <h1>{{ item.datos.pueblo}}</h1>
-    <h1>{{ item.datos.localizacion}}</h1>
-}
-
-
+    @for (item of eventos; track $index) {
+    <div class="evento">
+        <div class="mostrarfecha">
+            <h3>{{ item.datos.fecha}}</h3>
+        </div>
+        <div class="datos1">
+            <h3>{{ item.datos.hora}}</h3>
+            <h3>{{ item.datos.pueblo}}</h3>
+            <h3>{{ item.datos.ubicacion}}</h3>
+            <h3>{{ item.datos.nombreEspectaculo}}</h3>
+        </div>
+        <div class="datos2">
+            <h3>{{ item.datos.vacas}}</h3>
+            <h3>{{ item.datos.toro}}</h3>
+            <h3>{{ item.datos.capon}}</h3>
+            <h3>{{ item.datos.otros}}</h3>
+            <h3>{{ item.datos.precio}}</h3>
+        </div>
+    </div>
+    }
+</div>

@@ -3,8 +3,6 @@ import { AuthService } from './auth.service';
 import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { User } from './user.model';
-import path from 'path';
-import { EventosComponent } from '../eventos/eventos.component';
 import { Router } from '@angular/router';
 
 @Component({
