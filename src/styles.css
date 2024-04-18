@@ -1,17 +1,20 @@
 :root{
+  background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     background-image: url(./assets/bg.jpg);
     
 }
 
 
-/* Estilo para la barra de desplazamiento */
+
 ::-webkit-scrollbar {
-    width: 12px; /* Ancho de la barra */
+    width: 12px; 
   }
   
-  /* Estilo para el riel de la barra */
+ 
   ::-webkit-scrollbar-track {
-    background: transparent; /* Color del riel */
+    background: transparent; 
     
   }
   
