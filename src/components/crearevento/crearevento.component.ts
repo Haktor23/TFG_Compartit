@@ -4,13 +4,14 @@ import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
 import { FirebaseService } from '../../firebase.service';
+import { HeaderComponent } from "../header/header.component";
 
 @Component({
-  selector: 'app-crearevento',
-  standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, FormsModule],
-  templateUrl: './crearevento.component.html',
-  styleUrl: './crearevento.component.css'
+    selector: 'app-crearevento',
+    standalone: true,
+    templateUrl: './crearevento.component.html',
+    styleUrl: './crearevento.component.css',
+    imports: [CommonModule, ReactiveFormsModule, FormsModule, HeaderComponent]
 })
 export class CreareventoComponent implements OnInit {
 

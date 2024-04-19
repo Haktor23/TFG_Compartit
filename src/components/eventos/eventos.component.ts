@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from '../../firebase.service';
+import { HeaderComponent } from '../header/header.component';
 
 @Component({
-  selector: 'app-eventos',
+  selector: 'app-crearevento',
+  standalone: true,
   templateUrl: './eventos.component.html',
-  styleUrls: ['./eventos.component.css']
+  styleUrl: './eventos.component.css',
+  imports: [HeaderComponent]
 })
 export class EventosComponent implements OnInit {
   eventos: any[] = []; 

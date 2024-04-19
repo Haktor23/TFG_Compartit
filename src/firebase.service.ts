@@ -10,7 +10,7 @@ export class FirebaseService {
   firebaseConfig: any;
   app: any;
   database: any;
-  contador: number = 0;
+  
 
   constructor() {
     console.log("Inicializando Firebase...");
@@ -58,7 +58,7 @@ export class FirebaseService {
       otros: otros,
       precio: precio
     });
-    this.contador++;
+   
   }
 }
 

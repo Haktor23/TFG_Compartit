@@ -1,25 +1,11 @@
 <header>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3 col-sm-3 col-3">
-                <div class="logo">
-                    <img src="assets/hano_logo.png" class="logo" alt="">
-                </div>
-            </div>
-            <div class="col-md-9 col-sm-9 col-9 text-end">
-                <div class="menu-icon" (click)="openMenu()">
-                    <i class="{{menu_icon}}"></i>
-                </div>
-                <div class="desktop_menu" [class.mobile_menu]="menuValue">
-                    <ul>
-                        
-                        <li (click)="closeMenu()" href="/eventos">Eventos</li>
-                        <li (click)="closeMenu()">Crear Eventos</li>
-                        <li (click)="closeMenu()">Animales</li>
-                        <li (click)="closeMenu()">Vehiculos</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
+    <nav>
+      <ul>
+        <li><a routerLink="/">Inicio</a></li>
+        <li><a routerLink="/crearevento">Crear Eventos</a></li>
+        <li><a routerLink="/eventos">Eventos</a></li>
+        <li><a routerLink="/animales">Animales</a></li>
+        <li><a routerLink="/vehiculos">Vehiculos</a></li>
+      </ul>
+    </nav>
+  </header>
