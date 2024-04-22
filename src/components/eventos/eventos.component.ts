@@ -10,7 +10,9 @@ import { HeaderComponent } from '../header/header.component';
   imports: [HeaderComponent]
 })
 export class EventosComponent implements OnInit {
+
   eventos: any[] = []; 
+  eventoEditando: any = null;
 
   constructor(private firebaseService: FirebaseService) {}
 
@@ -30,4 +32,13 @@ export class EventosComponent implements OnInit {
       });
     });
   }
+
+  eliminarEvento(eventoId: string) {
+    this.firebaseService.eliminarEvento(eventoId);
+  }
+
+  
+
+
+
 }

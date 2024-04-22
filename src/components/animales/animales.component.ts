@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { FirebaseService } from '../../firebase.service';
 
 @Component({
   selector: 'app-animales',
@@ -10,25 +11,26 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AnimalesComponent {
 
-  vacas = [
-    { nombre: 'Vaca 1', raza: 'Holstein', peso: 500, edad: 3 },
-    { nombre: 'Vaca 1', raza: 'Holstein', peso: 500, edad: 3 },
-    { nombre: 'Vaca 1', raza: 'Holstein', peso: 500, edad: 3 },
-    { nombre: 'Vaca 1', raza: 'Holstein', peso: 500, edad: 3 },
-    { nombre: 'Vaca 1', raza: 'Holstein', peso: 500, edad: 3 },
-    { nombre: 'Vaca 1', raza: 'Holstein', peso: 500, edad: 3 },
-    { nombre: 'Vaca 1', raza: 'Holstein', peso: 500, edad: 3 },
-    { nombre: 'Vaca 1', raza: 'Holstein', peso: 500, edad: 3 },
-    { nombre: 'Vaca 1', raza: 'Holstein', peso: 500, edad: 3 },
-    { nombre: 'Vaca 1', raza: 'Holstein', peso: 500, edad: 3 },
-    { nombre: 'Vaca 1', raza: 'Holstein', peso: 500, edad: 3 },
-    { nombre: 'Vaca 1', raza: 'Holstein', peso: 500, edad: 3 },
-    { nombre: 'Vaca 1', raza: 'Holstein', peso: 500, edad: 3 },
-    { nombre: 'Vaca 1', raza: 'Holstein', peso: 500, edad: 3 },
-    { nombre: 'Vaca 1', raza: 'Holstein', peso: 500, edad: 3 },
-    { nombre: 'Vaca 1', raza: 'Holstein', peso: 500, edad: 3 },
-    
+
+  animales: any[] = [];
 
 
-  ];
+  constructor(private firebaseService: FirebaseService) { }
+
+  ngOnInit(): void {
+    console.log("Obteniendo animales...");
+
+    this.firebaseService.obtenerAnimales().subscribe((snapshot: any) => {
+      snapshot.forEach((childSnapshot: any) => {
+        const animal = {
+          id: childSnapshot.key,
+          datos: childSnapshot.val()
+
+        };
+        this.animales.push(animal);
+        console.log("Eventos:", this.animales);
+
+      });
+    });
+  }
 }

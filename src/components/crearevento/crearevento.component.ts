@@ -37,16 +37,7 @@ export class CreareventoComponent implements OnInit {
     precio: new FormControl('', [Validators.required])
   });
 
-  fecha: string = '';
-  hora: string = '';
-  pueblo: string = '';
-  nombreEspectaculo: string = '';
-  ubicacion: string = '';
-  vacas?: number | undefined;
-  capon?: number | undefined;
-  toro?: number | undefined;
-  otros?: string | undefined;
-  precio: number = 0;
+ 
 
 
 }

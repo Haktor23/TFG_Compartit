@@ -8,18 +8,21 @@
             <h3>{{ item.datos.fecha}}</h3>
         </div>
         <div class="datos1">
-            <h3>{{ item.datos.hora}}</h3>
-            <h3>{{ item.datos.pueblo}}</h3>
-            <h3>{{ item.datos.ubicacion}}</h3>
-            <h3>{{ item.datos.nombreEspectaculo}}</h3>
+            <h4>Hora: {{ item.datos.hora}}</h4>
+            <h4>Pueblo: {{ item.datos.pueblo}}</h4>
+            <h4>Ubicacion: {{ item.datos.ubicacion}}</h4>
+            <h4>Espectaculo: {{ item.datos.nombreEspectaculo}}</h4>
         </div>
         <div class="datos2">
-            <h3>{{ item.datos.vacas}}</h3>
-            <h3>{{ item.datos.toro}}</h3>
-            <h3>{{ item.datos.capon}}</h3>
-            <h3>{{ item.datos.otros}}</h3>
-            <h3>{{ item.datos.precio}}</h3>
+            <h4>Vacas: {{ item.datos.vacas}}</h4>
+            <h4>Toros: {{ item.datos.toro}}</h4>
+            <h4>Capon: {{ item.datos.capon}}</h4>
+            <h4>Datos adicionales: {{ item.datos.otros}}</h4>
+            <h4>Precio: {{ item.datos.precio}}</h4>
         </div>
     </div>
+
+    <button (click)="eliminarEvento(item.id)">Eliminar</button>
+    <button>Editar</button>
     }
 </div>

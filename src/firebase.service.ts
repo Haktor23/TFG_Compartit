@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
+import { log } from 'console';
 import { initializeApp } from "firebase/app";
-import { getDatabase, ref, child, get, set, query, orderByKey, limitToLast, push } from "firebase/database";
+import { getDatabase, ref, child, get, set, query, orderByKey, limitToLast, push, remove } from "firebase/database";
 import { from } from 'rxjs';
 
 @Injectable({
@@ -10,7 +11,7 @@ export class FirebaseService {
   firebaseConfig: any;
   app: any;
   database: any;
-  
+
 
   constructor() {
     console.log("Inicializando Firebase...");
@@ -34,14 +35,6 @@ export class FirebaseService {
     return from(get(child(dbRef, `eventos`)));
   }
 
-
-
-
-
-
-
-
-
   crearEventos(fecha, hora, pueblo, ubicacion, nombreEspectaculo, vacas, toro, capon, otros, precio) {
 
 
@@ -58,7 +51,37 @@ export class FirebaseService {
       otros: otros,
       precio: precio
     });
-   
+
   }
+
+  eliminarEvento(eventoId: string) {
+    const dbRef = ref(this.database);
+    remove(child(dbRef, `eventos/${eventoId}`))
+      .then(() => {
+        console.log('Evento eliminado correctamente');
+        // Recargar la página después de eliminar el evento
+        location.reload();
+      })
+      .catch(error => console.error('Error al eliminar el evento:', error));
+  }
+  
+  editarEvento(eventoId: string) {
+    const dbRef = ref(this.database);
+    return from(get(child(dbRef, `eventos/${eventoId}`)));
+  }
+
+  actualizarEvento(eventoId: string, datosEvento: any) {
+    const dbRef = ref(this.database);
+    return set(child(dbRef, `eventos/${eventoId}`), datosEvento);
+  }
+
+//ANIMALES
+
+obtenerAnimales() {
+  const dbRef = ref(this.database);
+  return from(get(child(dbRef, `animales`)));
+}
+
+
 }
 

@@ -1,24 +1,85 @@
 <div class="container">
     <div class="row-animales">
+
         <div class="toros">
-            Contenido de toros
-            <!-- @for (item of items; track $index) {} -->
+
+            @for (animal of animales; track $index){
+            @if (animal.datos.genero=="toro" && animal.datos.lesion==false || animal.datos.genero=="capon") {
+
+            <div class="toro">
+                <p>Nombre: {{animal.datos.nombre}}</p>
+                <p>Numero: {{animal.datos.numero}}</p>
+                <p>Guarismo: {{animal.datos.guarismo}}</p>
+                <p>Genero: {{animal.datos.genero}}</p>
+                <button>Lesionado</button>
+            </div>
+            }
+            }
+
         </div>
         <div class="vacas">
-            @for (vaca of vacas; track $index) {
-                <div class="vaca">
-                    <h3>{{vaca.nombre}}</h3>
-                    <p>{{vaca.edad}}</p>
-                    <p>{{vaca.raza}}</p>
-                    <p>{{vaca.peso}}</p>
-                </div>
+            @for (animal of animales; track $index) {
+            @if (animal.datos.genero=="vaca" && animal.datos.lesion==false) {
+
+            <div class="vaca">
+                <p>Nombre: {{animal.datos.nombre}}</p>
+                <p>Numero: {{animal.datos.numero}}</p>
+                <p>Guarismo: {{animal.datos.guarismo}}</p>
+                <p>Genero: {{animal.datos.genero}}</p>
+                <button>Lesionado</button>
+            </div>
+
+            }
             }
         </div>
     </div>
+
+
 </div>
 
-<form action="" method="post">
+<!--**********************LESION**********************-->
 
-    <label for="nombre">Nombre</label>
-    <input type="text">
+<div class="lesionados">
+    @for (animal of animales; track $index) {
+    @if (animal.datos.lesion==true) {
+    <div class="lesiones">
+        <p>Nombre: {{animal.datos.nombre}}</p>
+        <p>Numero: {{animal.datos.numero}}</p>
+        <p>Guarismo: {{animal.datos.guarismo}}</p>
+        <p>Genero: {{animal.datos.genero}}</p>
+        <button>Curado</button>
+    </div>
+    }
+
+    }
+
+</div>
+
+<form action="" method="post" class="formularioCrearAnimal">
+
+    <div class="col">
+        <label for="crotal">Crotal:</label>
+        <input type="number" id="crotal" name="crotal" formControlName="crotal" required>
+    </div>
+    <div class="col">
+        <label for="nombre">Nombre:</label>
+        <input type="number" id="nombre" name="nombre" formControlName="nombre" required>
+    </div>
+    <div class="col">
+        <label for="numero">Numero:</label>
+        <input type="number" id="numero" name="numero" formControlName="numero" required>
+    </div>
+    <div class="col">
+        <label for="guarismo">Guarismo:</label>
+        <input type="number" id="guarismo" name="guarismo" formControlName="guarismo" required>
+    </div>
+    <div class="col">
+        <label for="genero">Nombre del espectáculo:</label>
+        <select id="genero" name="genero" formControlName="genero" required>
+            <option value="toro">Toro</option>
+            <option value="vaca">Vaca</option>
+            <option value="capon">Capon</option>
+
+        </select>
+    </div>
 </form>
