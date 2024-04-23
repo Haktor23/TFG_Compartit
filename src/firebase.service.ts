@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { log } from 'console';
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, child, get, set, query, orderByKey, limitToLast, push, remove } from "firebase/database";
-import { from } from 'rxjs';
+import { Observable, from } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -82,6 +82,10 @@ obtenerAnimales() {
   return from(get(child(dbRef, `animales`)));
 }
 
+obtenerDetallesAnimal(animalId: string): Observable<any> {
+  const dbRef = ref(this.database);
+  return from(get(child(dbRef, `animales/${animalId}`)));
+}
 
 }
 

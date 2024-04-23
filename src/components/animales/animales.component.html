@@ -10,8 +10,7 @@
                 <p>Nombre: {{animal.datos.nombre}}</p>
                 <p>Numero: {{animal.datos.numero}}</p>
                 <p>Guarismo: {{animal.datos.guarismo}}</p>
-                <p>Genero: {{animal.datos.genero}}</p>
-                <button>Lesionado</button>
+                <button (click)="verInformacion(animal.id)">Informacion</button>
             </div>
             }
             }
@@ -25,10 +24,8 @@
                 <p>Nombre: {{animal.datos.nombre}}</p>
                 <p>Numero: {{animal.datos.numero}}</p>
                 <p>Guarismo: {{animal.datos.guarismo}}</p>
-                <p>Genero: {{animal.datos.genero}}</p>
-                <button>Lesionado</button>
+                <button><a href="/info-animales">Informacion</a></button>
             </div>
-
             }
             }
         </div>
@@ -50,36 +47,43 @@
         <button>Curado</button>
     </div>
     }
-
     }
 
 </div>
 
 <form action="" method="post" class="formularioCrearAnimal">
 
-    <div class="col">
-        <label for="crotal">Crotal:</label>
-        <input type="number" id="crotal" name="crotal" formControlName="crotal" required>
-    </div>
-    <div class="col">
-        <label for="nombre">Nombre:</label>
-        <input type="number" id="nombre" name="nombre" formControlName="nombre" required>
-    </div>
-    <div class="col">
-        <label for="numero">Numero:</label>
-        <input type="number" id="numero" name="numero" formControlName="numero" required>
-    </div>
-    <div class="col">
-        <label for="guarismo">Guarismo:</label>
-        <input type="number" id="guarismo" name="guarismo" formControlName="guarismo" required>
-    </div>
-    <div class="col">
-        <label for="genero">Nombre del espectáculo:</label>
-        <select id="genero" name="genero" formControlName="genero" required>
-            <option value="toro">Toro</option>
-            <option value="vaca">Vaca</option>
-            <option value="capon">Capon</option>
+    <label for="crotal">Crotal:</label>
+    <input type="number" id="crotal" name="crotal" formControlName="crotal" required>
 
-        </select>
-    </div>
+
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre" formControlName="nombre" required>
+
+
+    <label for="numero">Numero:</label>
+    <input type="number" id="numero" name="numero" formControlName="numero" required>
+
+
+    <label for="guarismo">Guarismo:</label>
+    <input type="number" id="guarismo" name="guarismo" formControlName="guarismo" required>
+
+
+    <label for="genero">Nombre del espectáculo:</label>
+    <select id="genero" name="genero" formControlName="genero" required>
+        <option value="toro">Toro</option>
+        <option value="vaca">Vaca</option>
+        <option value="capon">Capon</option>
+    </select>
+
+    
+        <h2>Subir imagen</h2>
+        <input type="file" (change)="onFileSelected($event)" accept="image/*">
+        <button (click)="uploadFile()">Subir</button>
+        <img *ngIf="imageUrl" [src]="imageUrl" alt="Imagen seleccionada">
+    
+
+
+    <button>Añadir</button>
+
 </form>

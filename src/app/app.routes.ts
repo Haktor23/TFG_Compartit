@@ -4,6 +4,7 @@ import { EventosComponent } from '../components/eventos/eventos.component';
 import { AnimalesComponent } from '../components/animales/animales.component';
 import { AuthComponent } from '../components/auth/auth.component';
 import { EditareventoComponent } from '../components/editarevento/editarevento.component';
+import { InfoAnimalesComponent } from '../components/info-animales/info-animales.component';
 
 export const routes: Routes = [
 
@@ -26,6 +27,9 @@ export const routes: Routes = [
     {
         path: 'editarevento',
         component: EditareventoComponent
+    },  {
+        path: 'info-animales',
+        component: InfoAnimalesComponent
     }, 
     {
         path: '**',
