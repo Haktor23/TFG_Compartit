@@ -45,4 +45,12 @@ export class InfoAnimalesComponent implements OnInit {
     this.router.navigate(['/animales']);
   }
 
+  marcarComoLesionado(animalId: string) {
+    this.firebaseService.marcarAnimalComoLesionado(animalId).then(() => {
+      console.log('Animal marcado como lesionado correctamente');
+      // También puedes actualizar animalData local si es necesario
+      this.animalData.lesion = true;
+    }).catch(error => console.error('Error al marcar animal como lesionado:', error));
+  }
+
 }

@@ -1,19 +1,27 @@
 
+.eventogeneral{
+    border: 1px solid #333;
+    
+}
+
 
 .container {
     width: 80%;
     margin: 0 auto;
     margin-top: 20px;
     padding: 20px;
-    background-color: #f9f9f9;
+   
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     opacity: 0.9;
     font-weight: bold;
+    border: 1px solid black; /* Agrega un borde negro de 1px */
 }
+
 
 .modern-form {
     margin-bottom: 20px;
+    
 }
 
 .form-row {
@@ -73,6 +81,7 @@
     justify-content: space-between;
     gap: 10px;
     flex-wrap: wrap;
+    background-color: #f0f0f0;
     /* Espacio entre cada campo */
 }
 

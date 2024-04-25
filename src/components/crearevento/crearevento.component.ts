@@ -2,26 +2,27 @@ import { Component, OnInit } from '@angular/core';
 import { FirebaseApp } from '@angular/fire/app';
 import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { FirebaseService } from '../../firebase.service';
 import { HeaderComponent } from "../header/header.component";
 
 @Component({
-    selector: 'app-crearevento',
-    standalone: true,
-    templateUrl: './crearevento.component.html',
-    styleUrl: './crearevento.component.css',
-    imports: [CommonModule, ReactiveFormsModule, FormsModule, HeaderComponent]
+  selector: 'app-crearevento',
+  standalone: true,
+  templateUrl: './crearevento.component.html',
+  styleUrl: './crearevento.component.css',
+  imports: [CommonModule, ReactiveFormsModule, FormsModule, HeaderComponent]
 })
 export class CreareventoComponent implements OnInit {
 
-  constructor(private firebaseService: FirebaseService) {
+  constructor(private firebaseService: FirebaseService, private router: Router) {
 
   }
   ngOnInit(): void {
   }
   crearevento() {
     this.firebaseService.crearEventos(this.form.value.fecha, this.form.value.hora, this.form.value.pueblo, this.form.value.ubicacion, this.form.value.nombreEspectaculo, this.form.value.vacas, this.form.value.toro, this.form.value.capon, this.form.value.otros, this.form.value.precio);
+    this.router.navigateByUrl('/evento');
   }
 
   form = new FormGroup({
@@ -37,7 +38,7 @@ export class CreareventoComponent implements OnInit {
     precio: new FormControl('', [Validators.required])
   });
 
- 
+
 
 
 }

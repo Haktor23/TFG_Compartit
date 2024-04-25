@@ -103,9 +103,18 @@ export class FirebaseService {
     const dbRef = ref(this.database, 'animales');
     return push(dbRef, nuevoAnimal);
   }
-  
-  
+
+  marcarAnimalComoLesionado(animalId: string) {
+    const dbRef = ref(this.database, `animales/${animalId}/lesion`);
+    return set(dbRef, true);
   }
+
+  marcarAnimalComoCurado(animalId: string) {
+    const dbRef = ref(this.database, `animales/${animalId}/lesion`);
+    return set(dbRef, false);
+  }
+
+}
 
 
 

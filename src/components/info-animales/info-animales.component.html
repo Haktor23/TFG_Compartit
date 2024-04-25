@@ -1,4 +1,3 @@
-
 <div class="container">
     <div class="image-container">
         <img [src]="animalData?.imagen" alt="Imagen del animal">
@@ -13,8 +12,8 @@
             <li><strong>Género:</strong> {{animalData?.genero}}</li>
             <li><strong>Guarismo:</strong> {{animalData?.guarismo}}</li>
             <button (click)="eliminarAnimal(animalId)">Eliminar</button>
-            <button >Lesionado</button>
-            <button >Editar</button>
+            <button (click)="marcarComoLesionado(animalId)">Lesionado</button>
+            <button>Editar</button>
         </ul>
     </div>
 </div>

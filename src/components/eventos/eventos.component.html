@@ -1,29 +1,30 @@
 <app-header></app-header>
+<div class="eventogeneral">
+    <div class="container">
+        <input type="date" [(ngModel)]="fechaSeleccionada" (change)="filtrarPorFecha()">
+        @for (item of eventos; track $index) {
+        <div class="evento">
+            <div class="mostrarfecha">
+                <h3>{{ item.datos.fecha}}</h3>
+            </div>
+            <div class="datos1">
+                <h4>Hora: {{ item.datos.hora}}</h4>
+                <h4>Pueblo: {{ item.datos.pueblo}}</h4>
+                <h4>Ubicación: <a href="{{ item.datos.ubicacion}}">Ubicacion</a></h4>
+                <h4>Espectaculo: {{ item.datos.nombreEspectaculo}}</h4>
+            </div>
+            <div class="datos2">
+                <h4>Vacas: {{ item.datos.vacas}}</h4>
+                <h4>Toros: {{ item.datos.toro}}</h4>
+                <h4>Capon: {{ item.datos.capon}}</h4>
+                <h4>Datos adicionales: {{ item.datos.otros}}</h4>
+                <h4>Precio: {{ item.datos.precio}}</h4>
+            </div>
+        </div>
 
-<div class="container">
+        <button (click)="eliminarEvento(item.id)">Eliminar</button>
+        <button [routerLink]="['/editar-evento', item.id]" class="btn btn-primary">Editar</button>
 
-    @for (item of eventos; track $index) {
-    <div class="evento">
-        <div class="mostrarfecha">
-            <h3>{{ item.datos.fecha}}</h3>
-        </div>
-        <div class="datos1">
-            <h4>Hora: {{ item.datos.hora}}</h4>
-            <h4>Pueblo: {{ item.datos.pueblo}}</h4>
-            <h4>Ubicación: <a href="{{ item.datos.ubicacion}}">Ubicacion</a></h4>
-            <h4>Espectaculo: {{ item.datos.nombreEspectaculo}}</h4>
-        </div>
-        <div class="datos2">
-            <h4>Vacas: {{ item.datos.vacas}}</h4>
-            <h4>Toros: {{ item.datos.toro}}</h4>
-            <h4>Capon: {{ item.datos.capon}}</h4>
-            <h4>Datos adicionales: {{ item.datos.otros}}</h4>
-            <h4>Precio: {{ item.datos.precio}}</h4>
-        </div>
+        }
     </div>
-
-    <button (click)="eliminarEvento(item.id)">Eliminar</button>
-    <button [routerLink]="['/editar-evento', item.id]" class="btn btn-primary">Editar</button>
-
-    }
 </div>

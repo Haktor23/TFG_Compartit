@@ -7,11 +7,11 @@ import { HeaderComponent } from "../header/header.component";
 
 
 @Component({
-    selector: 'app-animales',
-    standalone: true,
-    templateUrl: './animales.component.html',
-    styleUrl: './animales.component.css',
-    imports: [RouterOutlet, CommonModule, ReactiveFormsModule, FormsModule, HeaderComponent]
+  selector: 'app-animales',
+  standalone: true,
+  templateUrl: './animales.component.html',
+  styleUrl: './animales.component.css',
+  imports: [RouterOutlet, CommonModule, ReactiveFormsModule, FormsModule, HeaderComponent]
 })
 export class AnimalesComponent {
 
@@ -89,43 +89,63 @@ export class AnimalesComponent {
     reader.readAsDataURL(file);
   }
 
+  marcarAnimalComoCurado(animalId: string) {
+    this.firebaseService.marcarAnimalComoCurado(animalId).then(() => {
+      console.log('Animal marcado como curado correctamente.');
+      // Actualizar localmente el estado del animal como curado
+      const animalIndex = this.animales.findIndex(animal => animal.id === animalId);
+      if (animalIndex !== -1) {
+        this.animales[animalIndex].datos.lesion = false;
+      }
+    }).catch(error => {
+      console.error('Error al marcar el animal como curado:', error);
+    });
+  }
+
+  /* Filtrar animales */
+
+  busqueda: string = ''; // Término de búsqueda
+  campoBusquedaVaca: string = 'nombre'; // Campo de búsqueda por defecto
+  campoBusquedaToro: string = 'nombre';
+  // Método para filtrar animales según el término de búsqueda y el campo seleccionado
+  filtrarAnimalesVaca(): any[] {
+    if (!this.busqueda.trim()) {
+      return this.animales; // Si no hay término de búsqueda, retornar todos los animales
+    }
+
+
+
+    return this.animales.filter(animal => {
+      // Filtrar animales según el campo seleccionado y el término de búsqueda
+      if (this.campoBusquedaVaca === 'nombre') {
+        return animal.datos.nombre.toLowerCase().includes(this.busqueda.toLowerCase());
+      } else if (this.campoBusquedaVaca === 'numero') {
+        return animal.datos.numero.toString().includes(this.busqueda);
+      } else if (this.campoBusquedaVaca === 'guarismo') { // Agregado para el campo guarismo
+        return animal.datos.guarismo.toString().includes(this.busqueda);
+      }
+    });
+  }
+
+  filtrarAnimalesToro(): any[] {
+    if (!this.busqueda.trim()) {
+      return this.animales; // Si no hay término de búsqueda, retornar todos los animales
+    }
+
+
+
+    return this.animales.filter(animal => {
+      // Filtrar animales según el campo seleccionado y el término de búsqueda
+      if (this.campoBusquedaToro === 'nombre') {
+        return animal.datos.nombre.toLowerCase().includes(this.busqueda.toLowerCase());
+      } else if (this.campoBusquedaToro === 'numero') {
+        return animal.datos.numero.toString().includes(this.busqueda);
+      } else if (this.campoBusquedaToro === 'guarismo') { // Agregado para el campo guarismo
+        return animal.datos.guarismo.toString().includes(this.busqueda);
+      }
+    });
+  }
 }
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-/*
-
-  form = new FormGroup({
-    fecha: new FormControl('', [Validators.required]),
-    crotal: new FormControl('', [Validators.required]), // Add the 'crotal' property to the form
-    nombre: new FormControl('', [Validators.required]),
-    numero: new FormControl('', [Validators.required]),
-    genero: new FormControl('', [Validators.required]),
-    guarismo: new FormControl('', [Validators.required]),
-    lesion: new FormControl('', [Validators.required])
-  });
-
-  crearanimales() {
-    if (this.form.valid) {
-      // El formulario está completo y válido, realiza la acción aquí
-      console.log('Formulario válido, se puede enviar');
-      this.firebaseService.crearAnimales(
-        this.form.value.crotal,
-        this.form.value.nombre,
-        this.form.value.numero,
-        this.form.value.genero,
-        this.form.value.guarismo
-      );
-    }
-  }*/
