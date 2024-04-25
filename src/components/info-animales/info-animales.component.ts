@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FirebaseService } from '../../firebase.service';
 
 @Component({
@@ -13,16 +13,36 @@ export class InfoAnimalesComponent implements OnInit {
   animalId: string;
   animalData: any;
 
-  constructor(private route: ActivatedRoute, private firebaseService: FirebaseService) { }
+  constructor(private route: ActivatedRoute, private firebaseService: FirebaseService, private router: Router) { }
+
+  @Input() id?: string;
 
   ngOnInit(): void {
+
     // Obtener el ID del animal de los parámetros de la ruta
-    this.route.params.subscribe(params => {
-      this.animalId = params['id'];
-      // Llamar al servicio Firebase para obtener los detalles del animal
-      this.firebaseService.obtenerDetallesAnimal(this.animalId).subscribe(data => {
-        this.animalData = data;
-      });
+
+    console.log(this.id);
+    this.animalId = this.id;
+    this.firebaseService.obtenerDetallesAnimal(this.animalId).subscribe(snapshot => {
+      /* snapshot.forEach((childSnapshot: any) => {
+         const animal = {
+           id: childSnapshot.key,
+           datos: childSnapshot.val()
+ 
+         };
+         this.animalData= animal.datos;
+         console.log("Animal elegido:", this.animalData);
+ 
+       });*/
+
+      this.animalData = snapshot.val();
+      console.log(this.animalData);
     });
   }
+
+  eliminarAnimal(animalId: string) {
+    this.firebaseService.eliminarAnimal(animalId);
+    this.router.navigate(['/animales']);
+  }
+
 }

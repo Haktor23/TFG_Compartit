@@ -1,16 +1,20 @@
 
 <div class="container">
     <div class="image-container">
-        <img src="/src/assets/bg.jpg" alt="">
+        <img [src]="animalData?.imagen" alt="Imagen del animal">
     </div>
     <div class="separator"></div>
     <div class="data-container">
         <h2>Datos</h2>
         <ul>
-            <li><strong>Crotal:</strong> XXXXXXX</li>
-            <li><strong>Nombre:</strong> Nombre del animal</li>
-            <li><strong>Número:</strong> XXXX</li>
-            <li><strong>Género:</strong> Macho/Hembra</li>
+            <li><strong>Crotal:</strong> {{animalData?.crotal}}</li>
+            <li><strong>Nombre:</strong> {{animalData?.nombre}}</li>
+            <li><strong>Número:</strong> {{animalData?.numero}}</li>
+            <li><strong>Género:</strong> {{animalData?.genero}}</li>
+            <li><strong>Guarismo:</strong> {{animalData?.guarismo}}</li>
+            <button (click)="eliminarAnimal(animalId)">Eliminar</button>
+            <button >Lesionado</button>
+            <button >Editar</button>
         </ul>
     </div>
 </div>

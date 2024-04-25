@@ -28,7 +28,7 @@ export const routes: Routes = [
         path: 'editarevento',
         component: EditareventoComponent
     },  {
-        path: 'info-animales',
+        path: 'info-animales/:id',
         component: InfoAnimalesComponent
     }, 
     {

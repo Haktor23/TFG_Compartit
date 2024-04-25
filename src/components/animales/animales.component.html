@@ -1,10 +1,12 @@
+<app-header></app-header>
+
 <div class="container">
     <div class="row-animales">
 
         <div class="toros">
 
             @for (animal of animales; track $index){
-            @if (animal.datos.genero=="toro" && animal.datos.lesion==false || animal.datos.genero=="capon") {
+            @if (animal.datos.genero=="toro" || animal.datos.genero=="Toro" && animal.datos.lesion==false || animal.datos.genero=="capon" || animal.datos.genero=="Capon") {
 
             <div class="toro">
                 <p>Nombre: {{animal.datos.nombre}}</p>
@@ -18,13 +20,13 @@
         </div>
         <div class="vacas">
             @for (animal of animales; track $index) {
-            @if (animal.datos.genero=="vaca" && animal.datos.lesion==false) {
+            @if (animal.datos.genero=="vaca" || animal.datos.genero=="Vaca"&& animal.datos.lesion==false) {
 
             <div class="vaca">
                 <p>Nombre: {{animal.datos.nombre}}</p>
                 <p>Numero: {{animal.datos.numero}}</p>
                 <p>Guarismo: {{animal.datos.guarismo}}</p>
-                <button><a href="/info-animales">Informacion</a></button>
+                <button (click)="verInformacion(animal.id)">Informacion</button>
             </div>
             }
             }
@@ -51,7 +53,48 @@
 
 </div>
 
-<form action="" method="post" class="formularioCrearAnimal">
+
+
+    <!-- Formulario para agregar un nuevo animal -->
+    <form #animalForm="ngForm" class="formularioCrearAnimal" (ngSubmit)="crearAnimal(animalForm)">
+      <div class="form-group">
+        <label for="crotal">Crotal</label>
+        <input type="number" class="form-control" id="crotal" name="crotal" required [(ngModel)]="nuevoAnimal.crotal">
+      </div>
+      <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input type="text" class="form-control" id="nombre" name="nombre" required [(ngModel)]="nuevoAnimal.nombre">
+      </div>
+      <div class="form-group">
+        <label for="numero">Número</label>
+        <input type="number" class="form-control" id="numero" name="numero" required [(ngModel)]="nuevoAnimal.numero">
+      </div>
+      <div class="form-group">
+        <label for="guarismo">Guarismo</label>
+        <input type="number" class="form-control" id="guarismo" name="guarismo" required [(ngModel)]="nuevoAnimal.guarismo">
+      </div>
+      <div class="form-group">
+        <label for="genero">Género</label>
+        <select class="form-control" id="genero" name="genero" required [(ngModel)]="nuevoAnimal.genero">
+          <option value="Toro">Toro</option>
+          <option value="Vaca">Vaca</option>
+          <option value="Capon">Capon</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="imagen">Imagen</label>
+        <input type="file" class="form-control-file" id="imagen" name="imagen" (change)="onFileSelected($event)">
+      </div>
+      <button type="submit" class="btn btn-primary">Crear Animal</button>
+    </form>
+  
+  
+
+
+
+
+<!--
+<form class="formularioCrearAnimal" #crearanimalForm="ngForm" [formGroup]="form" *ngIf="form">
 
     <label for="crotal">Crotal:</label>
     <input type="number" id="crotal" name="crotal" formControlName="crotal" required>
@@ -63,27 +106,26 @@
 
     <label for="numero">Numero:</label>
     <input type="number" id="numero" name="numero" formControlName="numero" required>
-
+    <br>
 
     <label for="guarismo">Guarismo:</label>
     <input type="number" id="guarismo" name="guarismo" formControlName="guarismo" required>
-
+    <br>
 
     <label for="genero">Nombre del espectáculo:</label>
     <select id="genero" name="genero" formControlName="genero" required>
-        <option value="toro">Toro</option>
-        <option value="vaca">Vaca</option>
-        <option value="capon">Capon</option>
+        <option value="Toro">Toro</option>
+        <option value="Vaca">Vaca</option>
+        <option value="Capon">Capon</option>
     </select>
+    <br>
 
-    
-        <h2>Subir imagen</h2>
-        <input type="file" (change)="onFileSelected($event)" accept="image/*">
-        <button (click)="uploadFile()">Subir</button>
-        <img *ngIf="imageUrl" [src]="imageUrl" alt="Imagen seleccionada">
-    
+    <h2>Subir imagen</h2>
+    <input type="file" (change)="onFileSelected($event)" accept="image/*">
+    <button (click)="uploadFile()">Subir</button>
+    <img *ngIf="imageUrl" [src]="imageUrl" alt="Imagen seleccionada">
+    <br>
 
+    <button type="button" (click)="crearanimales()">Añadir</button>
 
-    <button>Añadir</button>
-
-</form>
+</form>-->

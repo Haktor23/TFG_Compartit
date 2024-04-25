@@ -1,5 +1,5 @@
 import { ApplicationConfig, importProvidersFrom } from '@angular/core';
-import { provideRouter, withHashLocation } from '@angular/router';
+import { provideRouter, withComponentInputBinding, withHashLocation } from '@angular/router';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -20,7 +20,7 @@ const firebaseConfig = {
 initializeApp(firebaseConfig);
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes),
+  providers: [provideRouter(routes, withComponentInputBinding()),
   importProvidersFrom(
     HttpClientModule,
     AngularFireModule.initializeApp(firebaseConfig),

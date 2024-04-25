@@ -64,7 +64,7 @@ export class FirebaseService {
       })
       .catch(error => console.error('Error al eliminar el evento:', error));
   }
-  
+
   editarEvento(eventoId: string) {
     const dbRef = ref(this.database);
     return from(get(child(dbRef, `eventos/${eventoId}`)));
@@ -75,17 +75,38 @@ export class FirebaseService {
     return set(child(dbRef, `eventos/${eventoId}`), datosEvento);
   }
 
-//ANIMALES
+  //ANIMALES
 
-obtenerAnimales() {
-  const dbRef = ref(this.database);
-  return from(get(child(dbRef, `animales`)));
-}
+  obtenerAnimales() {
+    const dbRef = ref(this.database);
+    return from(get(child(dbRef, `animales`)));
+  }
 
-obtenerDetallesAnimal(animalId: string): Observable<any> {
-  const dbRef = ref(this.database);
-  return from(get(child(dbRef, `animales/${animalId}`)));
-}
+  obtenerDetallesAnimal(animalId: string): Observable<any> {
+    const dbRef = ref(this.database);
+    return from(get(child(dbRef, `animales/${animalId}`)));
+  }
 
-}
+  eliminarAnimal(animalId: string) {
+    const dbRef = ref(this.database);
+    remove(child(dbRef, `animales/${animalId}`))
+      .then(() => {
+        console.log('Animal eliminado correctamente');
+        // Recargar la página después de eliminar el animal
+        location.reload();
+      })
+      .catch(error => console.error('Error al eliminar el animal:', error));
+  }
+
+  subirAnimal(nuevoAnimal: any) {
+    nuevoAnimal.lesion = false;
+    const dbRef = ref(this.database, 'animales');
+    return push(dbRef, nuevoAnimal);
+  }
+  
+  
+  }
+
+
+
 
