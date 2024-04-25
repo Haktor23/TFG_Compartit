@@ -1,20 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from '../../firebase.service';
 import { HeaderComponent } from '../header/header.component';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-crearevento',
   standalone: true,
   templateUrl: './eventos.component.html',
   styleUrl: './eventos.component.css',
-  imports: [HeaderComponent]
+  imports: [HeaderComponent, RouterModule]
 })
 export class EventosComponent implements OnInit {
 
-  eventos: any[] = []; 
+  eventos: any[] = [];
   eventoEditando: any = null;
-
-  constructor(private firebaseService: FirebaseService) {}
+  eventoEditandoIndex: number | null = null;
+  constructor(private firebaseService: FirebaseService) { }
 
   ngOnInit(): void {
     console.log("Obteniendo eventos...");
@@ -24,11 +25,11 @@ export class EventosComponent implements OnInit {
         const evento = {
           id: childSnapshot.key,
           datos: childSnapshot.val()
-          
+
         };
         this.eventos.push(evento);
-      console.log("Eventos:", this.eventos);
-      
+        console.log("Eventos:", this.eventos);
+
       });
     });
   }
@@ -37,7 +38,6 @@ export class EventosComponent implements OnInit {
     this.firebaseService.eliminarEvento(eventoId);
   }
 
-  
 
 
 

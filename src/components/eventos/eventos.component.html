@@ -23,6 +23,7 @@
     </div>
 
     <button (click)="eliminarEvento(item.id)">Eliminar</button>
-    <button>Editar</button>
+    <button [routerLink]="['/editar-evento', item.id]" class="btn btn-primary">Editar</button>
+
     }
 </div>

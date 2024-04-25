@@ -1,0 +1,66 @@
+<div class="container">
+  <h2>Editar Evento</h2>
+
+  <div class="form-row">
+    <div class="col label-input">
+      <label for="fecha">Fecha:</label>
+      <input type="date" id="fecha" [(ngModel)]="evento.fecha" name="fecha" required>
+    </div>
+
+    <div class="col label-input">
+      <label for="hora">Hora:</label>
+      <input type="time" id="hora" [(ngModel)]="evento.hora" name="hora" required>
+    </div>
+  </div>
+
+  <!-- Otros campos de edición -->
+
+  <div class="label-input">
+    <label for="nombreEspectaculo">Nombre del espectáculo:</label>
+    <select id="nombreEspectaculo" [(ngModel)]="evento.nombreEspectaculo" name="nombreEspectaculo">
+      <option value="">Seleccionar espectáculo</option>
+      <option value="Suelta de vaquillas">Suelta de vaquillas</option>
+      <option value="Suelta de vaquillas y toro embolado">Suelta de vaquillas y toro embolado</option>
+      <option value="Suelta de vaquillas y toro en puntas">Suelta de vaquillas y toro en puntas</option>
+      <option value="Toro embolado">Toro embolado</option>
+      <option value="Concuso de ganaderia">Concurso de ganadería</option>
+      <option value="Vaca embolada">Vaca embolada</option>
+      <option value="Toro en cuerda">Toro en cuerda</option>
+      <option value="Concurso de recortadores">Concurso de recortadores</option>
+      <option value="Evento especial">Evento especial</option>
+    </select>
+  </div>
+
+  <div class="form-row">
+    <div class="col label-input">
+      <label for="vacas">Vacas:</label>
+      <input type="number" id="vacas" [(ngModel)]="evento.vacas" name="vacas">
+    </div>
+
+    <div class="col label-input">
+      <label for="toro">Toro:</label>
+      <input type="number" id="toro" [(ngModel)]="evento.toro" name="toro">
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="col label-input">
+      <label for="capon">Capon:</label>
+      <input type="number" id="capon" [(ngModel)]="evento.capon" name="capon">
+    </div>
+
+    <div class="col label-input">
+      <label for="otros">Otros:</label>
+      <input type="text" id="otros" [(ngModel)]="evento.otros" name="otros">
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="col label-input">
+      <label for="precio">Precio:</label>
+      <input type="number" id="precio" [(ngModel)]="evento.precio" name="precio">
+    </div>
+  </div>
+
+  <button (click)="guardarCambios()">Guardar Cambios</button>
+</div>
