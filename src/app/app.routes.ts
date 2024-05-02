@@ -5,6 +5,7 @@ import { AnimalesComponent } from '../components/animales/animales.component';
 import { AuthComponent } from '../components/auth/auth.component';
 import { InfoAnimalesComponent } from '../components/info-animales/info-animales.component';
 import { EditarEventosComponent } from '../components/editar-eventos/editar-eventos.component';
+import { EditarAnimalesComponent } from '../components/editar-animales/editar-animales.component';
 
 export const routes: Routes = [
 
@@ -31,7 +32,10 @@ export const routes: Routes = [
         path: 'info-animales/:id',
         component: InfoAnimalesComponent
     },
-
+    {
+        path: 'editar-animales/:id',
+        component: EditarAnimalesComponent
+    },
     {
         path: '**',
         component: AuthComponent

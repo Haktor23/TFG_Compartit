@@ -53,4 +53,10 @@ export class InfoAnimalesComponent implements OnInit {
     }).catch(error => console.error('Error al marcar animal como lesionado:', error));
   }
 
+
+
+  editarAnimal(animalId: string) {
+    // Navegar a la página de edición del animal, pasando el ID del animal como parámetro en la ruta
+    this.router.navigate(['/editar-animales', animalId]);
+  }
 }

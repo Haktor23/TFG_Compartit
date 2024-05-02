@@ -19,6 +19,7 @@ export class EventosComponent implements OnInit {
   eventoEditandoIndex: number | null = null;
   fechaSeleccionada: Date | null = null;
 
+
   constructor(private firebaseService: FirebaseService) { }
 
   ngOnInit(): void {
@@ -54,6 +55,8 @@ export class EventosComponent implements OnInit {
   }
 
   filtrarPorFecha() {
+this.fechaSeleccionada = new Date(this.fechaSeleccionada);
+
     if (this.fechaSeleccionada instanceof Date && !isNaN(this.fechaSeleccionada.getTime())) {
       this.eventos = this.eventosOriginales.filter(evento => {
         const fechaEvento = new Date(evento.datos.fecha);
@@ -64,6 +67,7 @@ export class EventosComponent implements OnInit {
         );
       });
     } else {
+      console.log(typeof this.fechaSeleccionada);
       this.eventos = this.eventosOriginales.slice(); // Restaurar la lista original de eventos
     }
   }

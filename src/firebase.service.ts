@@ -114,6 +114,11 @@ export class FirebaseService {
     return set(dbRef, false);
   }
 
+  actualizarAnimal(animalId: string, datosAnimal: any) {
+    const dbRef = ref(this.database, `animales/${animalId}`);
+    return set(dbRef, datosAnimal);
+  }
+
 }
 
 

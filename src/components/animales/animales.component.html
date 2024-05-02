@@ -4,7 +4,7 @@
   <div class="row-animales">
 
     <div class="toros">
-      <input type="text" [(ngModel)]="busqueda" placeholder="Buscar...">
+      <input type="text" [(ngModel)]="busquedatoro" placeholder="Buscar...">
       <select [(ngModel)]="campoBusquedaToro">
         <option value="nombre">Nombre</option>
         <option value="numero">Número</option>
@@ -25,7 +25,7 @@
 
     </div>
     <div class="vacas">
-      <input type="text" [(ngModel)]="busqueda" placeholder="Buscar...">
+      <input type="text" [(ngModel)]="busquedavaca" placeholder="Buscar...">
       <!-- Select para elegir el campo de búsqueda -->
       <select [(ngModel)]="campoBusquedaVaca">
         <option value="nombre">Nombre</option>
@@ -99,5 +99,8 @@
     <label for="imagen">Imagen</label>
     <input type="file" class="form-control-file" id="imagen" name="imagen" (change)="onFileSelected($event)">
   </div>
+
+  <img *ngIf="imagenSeleccionada" [src]="imagenSeleccionada" alt="Imagen seleccionada" width="600" height="450">
+
   <button type="submit" class="btn btn-primary">Crear Animal</button>
 </form>
