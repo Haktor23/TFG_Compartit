@@ -1,32 +1,48 @@
 import { Injectable } from '@angular/core';
 import { log } from 'console';
 import { initializeApp } from "firebase/app";
+import { UserCredential, getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { getDatabase, ref, child, get, set, query, orderByKey, limitToLast, push, remove } from "firebase/database";
 import { Observable, from } from 'rxjs';
+import { firebaseConfig } from './environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FirebaseService {
-  firebaseConfig: any;
+
   app: any;
   database: any;
+  email: string;
+  password: string;
+
 
 
   constructor() {
-    console.log("Inicializando Firebase...");
 
-    this.firebaseConfig = {
-      // ...
-      // The value of `databaseURL` depends on the location of the database
-      databaseURL: "https://tfghector-d12c1-default-rtdb.europe-west1.firebasedatabase.app/",
-    };
-
-    // Initialize Firebase
-    this.app = initializeApp(this.firebaseConfig, "evento");
-
-    // Initialize Realtime Database and get a reference to the service
+    this.app = initializeApp(firebaseConfig);
     this.database = getDatabase(this.app);
+  }
+  firebaseConfig(firebaseConfig: any, arg1: string): any {
+    throw new Error('Method not implemented.');
+  }
+
+
+  login = (email: string, password: string) => {
+    const auth = getAuth();
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential: UserCredential) => {
+        // Si el inicio de sesión es exitoso, el código dentro de este bloque se ejecutará
+        console.log("Inicio de sesión exitoso");
+        const user = userCredential.user;
+        console.log("Usuario:", user);
+      })
+      .catch((error) => {
+        // Si hay un error durante el inicio de sesión, el código dentro de este bloque se ejecutará
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.error("Error durante el inicio de sesión:", errorCode, errorMessage);
+      });
   }
 
 
