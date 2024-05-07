@@ -6,6 +6,8 @@ import { AuthComponent } from '../components/auth/auth.component';
 import { InfoAnimalesComponent } from '../components/info-animales/info-animales.component';
 import { EditarEventosComponent } from '../components/editar-eventos/editar-eventos.component';
 import { EditarAnimalesComponent } from '../components/editar-animales/editar-animales.component';
+import { VehiculosComponent } from '../components/vehiculos/vehiculos.component';
+import { InfoVehiculosComponent } from '../components/info-vehiculos/info-vehiculos.component';
 
 export const routes: Routes = [
 
@@ -35,6 +37,14 @@ export const routes: Routes = [
     {
         path: 'editar-animales/:id',
         component: EditarAnimalesComponent
+    },
+    {
+        path: 'vehiculos',
+        component: VehiculosComponent
+    },
+    {
+        path: 'info-vehiculo/:id',
+        component: InfoVehiculosComponent
     },
     {
         path: '**',

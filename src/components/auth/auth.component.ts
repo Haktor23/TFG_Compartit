@@ -4,6 +4,7 @@ import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { User } from './user.model';
 import { Router } from '@angular/router';
 import { FirebaseService } from '../../firebase.service';
+import { Token } from '@angular/compiler';
 
 @Component({
   selector: 'app-auth',
@@ -15,6 +16,14 @@ import { FirebaseService } from '../../firebase.service';
 export class AuthComponent {
 
   constructor(private firebaseService: FirebaseService, private router: Router) { }
+
+  ngOnInit() {
+    if (Token == null) {
+      this.router.navigate(['/login']);
+    }
+  }
+
+
   error: String;
 
   form = new FormGroup({

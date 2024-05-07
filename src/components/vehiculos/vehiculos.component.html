@@ -1,0 +1,51 @@
+<app-header></app-header>
+<!-- Mostrar vehículos -->
+<table>
+    <thead>
+        <tr>
+            <th>Modelo Vehiculo</th>
+            <th>Matrícula</th>
+            <th>Número de Bastidor</th>
+            <th>Kilómetros</th>
+            <th>Próxima ITV</th>
+            <th>Observaciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (vehiculo of vehiculos; track $index) {
+        <tr>
+            <td>{{ vehiculo.modeloVehiculo }}</td>
+            <td>{{ vehiculo.matricula }}</td>
+            <td>{{ vehiculo.numeroBastidor }}</td>
+            <td>{{ vehiculo.km }}</td>
+            <td>{{ vehiculo.proximaItv }}</td>
+            <td>{{ vehiculo.observaciones }}</td>
+            <h1> {{vehiculo.id}}</h1>
+            <td><button (click)="infoVehiculo(vehiculo.id)">Informacion</button></td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+<!-- Formulario para añadir vehículos -->
+<form (ngSubmit)="agregarVehiculo()" #vehiculoForm="ngForm">
+    <label>Modelo Vehiculo:</label>
+    <input type="text" name="modeloVehiculo" [(ngModel)]="nuevoVehiculo.modeloVehiculo" required>
+
+    <label>Matrícula:</label>
+    <input type="text" name="matricula" [(ngModel)]="nuevoVehiculo.matricula" required>
+
+    <label>Número de Bastidor:</label>
+    <input type="text" name="numeroBastidor" [(ngModel)]="nuevoVehiculo.numeroBastidor" required>
+
+    <label>Kilómetros:</label>
+    <input type="number" name="km" [(ngModel)]="nuevoVehiculo.km" required>
+
+    <label>Próxima ITV:</label>
+    <input type="date" name="proximaItv" [(ngModel)]="nuevoVehiculo.proximaItv" required>
+
+    <label>Observaciones:</label>
+    <textarea name="observaciones" [(ngModel)]="nuevoVehiculo.observaciones"></textarea>
+
+    <button type="submit" [disabled]="vehiculoForm.invalid">Añadir Vehículo</button>
+</form>

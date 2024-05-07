@@ -52,8 +52,6 @@ export class FirebaseService {
   }
 
   crearEventos(fecha, hora, pueblo, ubicacion, nombreEspectaculo, vacas, toro, capon, otros, precio) {
-
-
     const dbRef = ref(this.database);
     push(child(dbRef, `eventos/`), {
       fecha: fecha,
@@ -135,8 +133,18 @@ export class FirebaseService {
     return set(dbRef, datosAnimal);
   }
 
+  obtenerVehiculos() {
+    const dbRef = ref(this.database, 'vehiculos');
+    return from(get(child(dbRef, '/')));
+  }
+
+  agregarVehiculo(nuevoVehiculo: any) {
+    const dbRef = ref(this.database, 'vehiculos');
+    return push(dbRef, nuevoVehiculo);
+  }
+
+  obtenerDetallesVehiculo(vehiculoId: string): Observable<any> {
+    const dbRef = ref(this.database);
+    return from(get(child(dbRef, `vehiculos/${vehiculoId}`)));
+  }
 }
-
-
-
-

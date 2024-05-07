@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
 import { FirebaseService } from '../../firebase.service';
 import { CommonModule } from '@angular/common';
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { HeaderComponent } from "../header/header.component";
 
 
@@ -41,7 +41,7 @@ export class AnimalesComponent {
   }
 
   verInformacion(animalId: string) {
-    // Redirecciona al componente InfoAnimalesComponent con el ID del animal como parámetro
+
     this.router.navigate(['/info-animales', animalId]);
   }
 
@@ -49,16 +49,16 @@ export class AnimalesComponent {
 
   //******************************************************************************************************** */
 
-  nuevoAnimal: any = {}; 
-  imagenBase64: string = ''; 
+  nuevoAnimal: any = {};
+  imagenBase64: string = '';
 
 
   // Método para procesar el formulario y crear un nuevo animal
   crearAnimal(formulario: any) {
-    if (formulario.valid) { 
+    if (formulario.valid) {
       let imagenBase64 = this.imagenBase64;
 
-  
+
       // Crear objeto con los datos del animal
       const nuevoAnimal = {
         crotal: this.nuevoAnimal.crotal,
@@ -66,19 +66,19 @@ export class AnimalesComponent {
         numero: this.nuevoAnimal.numero,
         guarismo: this.nuevoAnimal.guarismo,
         genero: this.nuevoAnimal.genero,
-        imagen: imagenBase64 
+        imagen: imagenBase64
       };
-  
-      // Subir el nuevo animal a Firebase
+
+
       this.firebaseService.subirAnimal(nuevoAnimal).then(() => {
         console.log('Animal creado correctamente.');
-        formulario.reset(); 
+        formulario.reset();
         this.imagenBase64 = '';
       }).catch(error => {
         console.error('Error al crear el animal:', error);
       });
     } else {
-      
+
       alert('Por favor, complete todos los campos.');
     }
   }
@@ -128,21 +128,11 @@ export class AnimalesComponent {
   }
 
 
-
-
-
-
-
-
-
-
-
-
   /* Filtrar animales */
 
-  busquedatoro: string = ''; 
-  busquedavaca: string = ''; 
-  campoBusquedaVaca: string = 'nombre'; 
+  busquedatoro: string = '';
+  busquedavaca: string = '';
+  campoBusquedaVaca: string = 'nombre';
   campoBusquedaToro: string = 'nombre';
 
   // Método para filtrar animales según el término de búsqueda y el campo seleccionado
@@ -183,7 +173,13 @@ export class AnimalesComponent {
       }
     });
   }
+  /* VALIDACIONES */
+
+
+
 }
+
+
 
 
 
