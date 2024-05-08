@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, RouterModule } from '@angular/router';
 import { FirebaseService } from '../../firebase.service';
 import { HeaderComponent } from '../header/header.component';
 import { FormsModule } from '@angular/forms';
-import { Router, RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-crearevento',
+  selector: 'app-eventos-realizados',
   standalone: true,
-  templateUrl: './eventos.component.html',
-  styleUrl: './eventos.component.css',
-  imports: [HeaderComponent, FormsModule, RouterModule]
+  imports: [HeaderComponent, FormsModule, RouterModule],
+  templateUrl: './eventos-realizados.component.html',
+  styleUrl: './eventos-realizados.component.css'
 })
-export class EventosComponent implements OnInit {
+export class EventosRealizadosComponent  implements OnInit {
 
   eventos: any[] = [];
   eventosOriginales: any[] = []; // Mantener una copia de respaldo de todos los eventos originales
@@ -75,17 +75,6 @@ export class EventosComponent implements OnInit {
     }
   }
 
-  /* Marcar como realizado */
-
-  marcarComoRealizado(eventoId: string) {
-    this.firebaseService.actualizarEstadoEvento(eventoId, true)
-      .then(() => {
-        console.log('Evento marcado como realizado correctamente');
-        this.eventos = [];
-        this.obtenerEventos();
-      })
-      .catch(error => console.error('Error al marcar el evento como realizado:', error));
-  }
 
 
 

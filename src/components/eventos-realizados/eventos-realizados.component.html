@@ -1,11 +1,11 @@
 <app-header></app-header>
 <div class="eventogeneral">
+    <h2>Eventos realizados</h2>
     <div class="container">
         <input type="date" [(ngModel)]="fechaSeleccionada" (change)="filtrarPorFecha()">
-        <button [routerLink]="['/eventos-realizados']">Eventos realizados</button>
 
         @for (item of eventos; track $index) {
-        @if (!item.datos.estado) {
+        @if (item.datos.estado) {
         <div class="evento">
             <div class="mostrarfecha">
                 <h3>{{ item.datos.fecha}}</h3>
@@ -26,9 +26,7 @@
         </div>
 
 
-        <button class="eliminar" (click)="eliminarEvento(item.id)">Eliminar</button>
-        <button  [routerLink]="['/editar-evento', item.id]" class="btn btn-primary editar">Editar</button>
-        <button class="realizado" (click)="marcarComoRealizado(item.id)">Marcar como realizado</button>
+        <button (click)="eliminarEvento(item.id)" class="eliminar">Eliminar</button>
 
         }
         }

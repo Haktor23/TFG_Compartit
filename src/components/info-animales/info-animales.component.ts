@@ -14,9 +14,9 @@ export class InfoAnimalesComponent implements OnInit {
   @Input() id?: string;
   animalData: any;
 
-  constructor(private route: ActivatedRoute, private firebaseService: FirebaseService, private router: Router) { }
+  constructor(private firebaseService: FirebaseService, private router: Router) { }
 
-  
+
 
   ngOnInit(): void {
     console.log(this.id);
@@ -35,8 +35,8 @@ export class InfoAnimalesComponent implements OnInit {
   marcarComoLesionado(animalId: string) {
     this.firebaseService.marcarAnimalComoLesionado(animalId).then(() => {
       console.log('Animal marcado como lesionado correctamente');
-      // También puedes actualizar animalData local si es necesario
       this.animalData.lesion = true;
+      this.router.navigate(['/animales']);
     }).catch(error => console.error('Error al marcar animal como lesionado:', error));
   }
 

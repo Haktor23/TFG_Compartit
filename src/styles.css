@@ -11,6 +11,10 @@
 
 }
 
+body {
+  margin: 0;
+}
+
 
 
 ::-webkit-scrollbar {
@@ -35,4 +39,53 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
   /* Color del mango al pasar el mouse */
+}
+
+
+.eliminar {
+  color: black;
+  display: inline-block;
+  width: auto;
+  padding: 10px 20px;
+  background-color: red;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.eliminar:hover {
+  background-color: rgb(146, 9, 9);
+}
+
+.editar {
+  color: black;
+  display: inline-block;
+  width: auto;
+  padding: 10px 20px;
+  background-color: rgb(217, 217, 16);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.editar:hover {
+  background-color: rgb(127, 127, 9);
+}
+
+.realizado {
+  color: black;
+  display: inline-block;
+  width: auto;
+  padding: 10px 20px;
+  background-color: rgb(28, 156, 28);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.realizado:hover {
+  background-color: rgb(5, 95, 5);
 }

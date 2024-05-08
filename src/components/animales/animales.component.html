@@ -18,7 +18,7 @@
         <p>Nombre: {{animal.datos.nombre}}</p>
         <p>Numero: {{animal.datos.numero}}</p>
         <p>Guarismo: {{animal.datos.guarismo}}</p>
-        <button (click)="verInformacion(animal.id)">Informacion</button>
+        <button (click)="verInformacion(animal.id) " class="editar">Informacion</button>
       </div>
       }
       }
@@ -40,7 +40,7 @@
         <p>Nombre: {{animal.datos.nombre}}</p>
         <p>Numero: {{animal.datos.numero}}</p>
         <p>Guarismo: {{animal.datos.guarismo}}</p>
-        <button (click)="verInformacion(animal.id)">Informacion</button>
+        <button (click)="verInformacion(animal.id)" class="editar">Informacion</button>
       </div>
       }
       }
@@ -60,7 +60,7 @@
     <p>Numero: {{animal.datos.numero}}</p>
     <p>Guarismo: {{animal.datos.guarismo}}</p>
     <p>Genero: {{animal.datos.genero}}</p>
-    <button (click)="marcarAnimalComoCurado(animal.id)">Curado</button>
+    <button (click)="marcarAnimalComoCurado(animal.id)" class="realizado">Curado</button>
   </div>
   }
   }
@@ -68,24 +68,41 @@
 </div>
 
 
-
-<!-- Formulario para agregar un nuevo animal -->
-<form #animalForm="ngForm" class="formularioCrearAnimal" (ngSubmit)="crearAnimal(animalForm)">
+<form #animalForm="ngForm" class="formularioCrearAnimal" (ngSubmit)="crearAnimal(animalForm)" novalidate>
   <div class="form-group">
     <label for="crotal">Crotal</label>
-    <input type="number" class="form-control" id="crotal" name="crotal" required [(ngModel)]="nuevoAnimal.crotal">
+    <input type="number" class="form-control" id="crotal" name="crotal" required [(ngModel)]="nuevoAnimal.crotal" minlength="4" maxlength="4" pattern="[0-9]*">
+    <div *ngIf="animalForm.controls['crotal'].invalid && (animalForm.controls['crotal'].dirty || animalForm.controls['crotal'].touched)" class="alert alert-danger">
+      <div *ngIf="animalForm.controls['crotal'].errors['required']">Crotal es obligatorio.</div>
+      <div *ngIf="animalForm.controls['crotal'].errors['minlength'] || animalForm.controls['crotal'].errors['maxlength']">El crotal debe tener 4 dígitos.</div>
+      <div *ngIf="animalForm.controls['crotal'].errors['pattern']">El crotal solo puede contener caracteres numéricos.</div>
+    </div>
   </div>
   <div class="form-group">
     <label for="nombre">Nombre</label>
-    <input type="text" class="form-control" id="nombre" name="nombre" required [(ngModel)]="nuevoAnimal.nombre">
+    <input type="text" class="form-control" id="nombre" name="nombre" required [(ngModel)]="nuevoAnimal.nombre" pattern="[a-zA-Z ]*">
+    <div *ngIf="animalForm.controls['nombre'].invalid && (animalForm.controls['nombre'].dirty || animalForm.controls['nombre'].touched)" class="alert alert-danger">
+      <div *ngIf="animalForm.controls['nombre'].errors['required']">Nombre es obligatorio.</div>
+      <div *ngIf="animalForm.controls['nombre'].errors['pattern']">El nombre solo puede contener letras.</div>
+    </div>
   </div>
   <div class="form-group">
     <label for="numero">Número</label>
-    <input type="number" class="form-control" id="numero" name="numero" required [(ngModel)]="nuevoAnimal.numero">
+    <input type="number" class="form-control" id="numero" name="numero" required [(ngModel)]="nuevoAnimal.numero" max="999" pattern="[0-9]*">
+    <div *ngIf="animalForm.controls['numero'].invalid && (animalForm.controls['numero'].dirty || animalForm.controls['numero'].touched)" class="alert alert-danger">
+      <div *ngIf="animalForm.controls['numero'].errors['required']">Número es obligatorio.</div>
+      <div *ngIf="animalForm.controls['numero'].errors['max']">El número debe ser menor o igual a 999.</div>
+      <div *ngIf="animalForm.controls['numero'].errors['pattern']">El número solo puede contener caracteres numéricos.</div>
+    </div>
   </div>
   <div class="form-group">
     <label for="guarismo">Guarismo</label>
-    <input type="number" class="form-control" id="guarismo" name="guarismo" required [(ngModel)]="nuevoAnimal.guarismo">
+    <input type="number" class="form-control" id="guarismo" name="guarismo" required [(ngModel)]="nuevoAnimal.guarismo" maxlength="4" pattern="[0-9]*">
+    <div *ngIf="animalForm.controls['guarismo'].invalid && (animalForm.controls['guarismo'].dirty || animalForm.controls['guarismo'].touched)" class="alert alert-danger">
+      <div *ngIf="animalForm.controls['guarismo'].errors['required']">Guarismo es obligatorio.</div>
+      <div *ngIf="animalForm.controls['guarismo'].errors['maxlength']">El guarismo debe tener máximo 4 dígitos.</div>
+      <div *ngIf="animalForm.controls['guarismo'].errors['pattern']">El guarismo solo puede contener caracteres numéricos.</div>
+    </div>
   </div>
   <div class="form-group">
     <label for="genero">Género</label>
@@ -102,5 +119,5 @@
 
   <img *ngIf="imagenSeleccionada" [src]="imagenSeleccionada" alt="Imagen seleccionada" width="600" height="450">
 
-  <button type="submit" class="btn btn-primary">Crear Animal</button>
+  <button type="submit" class="btn btn-primary realizado" [disabled]="animalForm.invalid">Crear Animal</button>
 </form>

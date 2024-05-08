@@ -53,6 +53,13 @@ export class VehiculosComponent implements OnInit {
             return;
         }
 
+        // Verificar si la matrícula ya existe en la base de datos
+        const matriculaExistente = this.vehiculos.find(vehiculo => vehiculo.matricula === this.nuevoVehiculo.matricula);
+        if (matriculaExistente) {
+            alert('La matrícula ingresada ya existe en la base de datos.');
+            return;
+        }
+
         // Agregar el nuevo vehículo a la base de datos
         this.firebaseService.agregarVehiculo(this.nuevoVehiculo).then(() => {
             console.log('Vehículo añadido correctamente.');
@@ -65,7 +72,6 @@ export class VehiculosComponent implements OnInit {
     }
 
     infoVehiculo(id: string) {
-        console.log('ID del vehículo:', id);
         this.router.navigate(['/info-vehiculo', id]);
     }
 }

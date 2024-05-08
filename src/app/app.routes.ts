@@ -8,6 +8,7 @@ import { EditarEventosComponent } from '../components/editar-eventos/editar-even
 import { EditarAnimalesComponent } from '../components/editar-animales/editar-animales.component';
 import { VehiculosComponent } from '../components/vehiculos/vehiculos.component';
 import { InfoVehiculosComponent } from '../components/info-vehiculos/info-vehiculos.component';
+import { EventosRealizadosComponent } from '../components/eventos-realizados/eventos-realizados.component';
 
 export const routes: Routes = [
 
@@ -47,7 +48,15 @@ export const routes: Routes = [
         component: InfoVehiculosComponent
     },
     {
+        path: 'eventos-realizados',
+        component: EventosRealizadosComponent
+    },
+    {
         path: '**',
         component: AuthComponent
     }
+
+
+
+    
 ];

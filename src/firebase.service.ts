@@ -147,4 +147,10 @@ export class FirebaseService {
     const dbRef = ref(this.database);
     return from(get(child(dbRef, `vehiculos/${vehiculoId}`)));
   }
+
+  actualizarEstadoEvento(eventoId: string, estado: boolean) {
+    const dbRef = ref(this.database, `eventos/${eventoId}/estado`);
+    return set(dbRef, estado);
+  }
+  
 }

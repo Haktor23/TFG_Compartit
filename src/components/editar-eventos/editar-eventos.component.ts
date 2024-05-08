@@ -36,7 +36,6 @@ export class EditarEventosComponent implements OnInit {
     this.firebaseService.actualizarEvento(this.eventoId, this.evento)
       .then(() => {
         console.log('Evento actualizado correctamente');
-
         this.router.navigate(['/evento']);
       })
       .catch(error => console.error('Error al actualizar el evento:', error));

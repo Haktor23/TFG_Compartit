@@ -25,6 +25,10 @@ export class AnimalesComponent {
 
   ngOnInit(): void {
     console.log("Obteniendo animales...");
+    this.obtenerdatos();
+  }
+
+  obtenerdatos() {
 
     this.firebaseService.obtenerAnimales().subscribe((snapshot: any) => {
       snapshot.forEach((childSnapshot: any) => {
@@ -56,6 +60,13 @@ export class AnimalesComponent {
   // Método para procesar el formulario y crear un nuevo animal
   crearAnimal(formulario: any) {
     if (formulario.valid) {
+
+      const crotalExistente = this.animales.some(animal => animal.datos.crotal === this.nuevoAnimal.crotal);
+      if (crotalExistente) {
+        alert('El crotal ingresado ya está en uso. Por favor, elija otro.');
+        return;
+      }
+
       let imagenBase64 = this.imagenBase64;
 
 
@@ -74,6 +85,8 @@ export class AnimalesComponent {
         console.log('Animal creado correctamente.');
         formulario.reset();
         this.imagenBase64 = '';
+        this.animales = []; 
+        this.obtenerdatos();
       }).catch(error => {
         console.error('Error al crear el animal:', error);
       });
@@ -173,9 +186,6 @@ export class AnimalesComponent {
       }
     });
   }
-  /* VALIDACIONES */
-
-
 
 }
 

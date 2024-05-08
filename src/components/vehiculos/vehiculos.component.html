@@ -20,8 +20,7 @@
             <td>{{ vehiculo.km }}</td>
             <td>{{ vehiculo.proximaItv }}</td>
             <td>{{ vehiculo.observaciones }}</td>
-            <h1> {{vehiculo.id}}</h1>
-            <td><button (click)="infoVehiculo(vehiculo.id)">Informacion</button></td>
+            <td><button (click)="infoVehiculo(vehiculo.id)" class="editar">Informacion</button></td>
         </tr>
         }
     </tbody>
@@ -47,5 +46,5 @@
     <label>Observaciones:</label>
     <textarea name="observaciones" [(ngModel)]="nuevoVehiculo.observaciones"></textarea>
 
-    <button type="submit" [disabled]="vehiculoForm.invalid">Añadir Vehículo</button>
+    <button type="submit" [disabled]="vehiculoForm.invalid" class="realizado">Añadir Vehículo</button>
 </form>
