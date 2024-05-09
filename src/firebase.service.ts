@@ -152,5 +152,16 @@ export class FirebaseService {
     const dbRef = ref(this.database, `eventos/${eventoId}/estado`);
     return set(dbRef, estado);
   }
+
+  eliminarVehiculo(vehiculoId: string): Observable<void> {
+    const dbRef = ref(this.database, `vehiculos/${vehiculoId}`);
+    return from(remove(dbRef));
+  }
+
+  actualizarVehiculo(vehiculoId: string, datosVehiculo: any): Observable<void> {
+    const dbRef = ref(this.database, `vehiculos/${vehiculoId}`);
+    return from(set(dbRef, datosVehiculo));
+  }
+  
   
 }

@@ -35,10 +35,12 @@ export class AuthComponent {
     const { email, password } = this.form.value;
     try {
       await this.firebaseService.login(email, password);
+      // Esperar a que la autenticación tenga éxito antes de redirigir
       this.router.navigate(['/evento']);
     } catch (error) {
       // Manejar el error de inicio de sesión
       this.error = "Correo electrónico o contraseña incorrectos.";
     }
   }
+  
 }

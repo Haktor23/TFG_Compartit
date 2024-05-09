@@ -1,95 +1,98 @@
 .container {
     display: flex;
     justify-content: center;
-    /* Alinea el contenido al centro horizontalmente */
+    align-items: center;
     width: 100%;
-    border: 3px solid red;
-    height: 100%;
     margin-top: 3%;
 }
 
 .row-animales {
     display: flex;
     justify-content: space-around;
-    /* Alinea el contenido al centro horizontalmente */
     width: 80%;
-    border: 3px solid yellow;
-    height: 100%;
-    gap: 20%;
-
+    gap: 20px;
 }
 
-.toros {
-    background-color: rgb(90, 90, 90);
-    width: 50%;
-    height: 35em;
-    border: 3px solid green;
-    border-radius: 20px;
-    overflow-y: scroll;
-}
 
+
+.toros,
 .vacas {
-    background-color: rgb(90, 90, 90);
-    width: 50%;
+    background-color: rgba(255, 255, 255, 0.8);
+    width: 45%;
     height: 35em;
-    border: 3px solid blue;
-    border-radius: 20px;
+    border: 2px solid #ccc;
+    border-radius: 15px;
     overflow-y: scroll;
+    flex-direction: row;
 
 }
 
-.lesiones {
-    background-color: rgb(90, 90, 90);
-    width: 50%;
-    height: 35em;
-    border: 3px solid blue;
-    border-radius: 20px;
-    overflow-y: scroll;
-}
-
-.vaca {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 100%;
-    height: 5em;
-    border: 1px solid black;
-    border-radius: 10px;
-
-}
-
+.vaca,
 .toro {
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 100%;
-    height: 5em;
+    flex-direction: row;
     border: 1px solid black;
-    border-radius: 10px;
+    justify-content: space-between;
+    text-align: justify;
+}
 
+.lesionados {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+    border: 2px solid #ccc;
+    background-color: rgba(255, 255, 255, 0.8);
+    margin: 0 auto;
+
+}
+
+.espaciador {
+    height: 10%;
 }
 
 .lesiones {
     display: flex;
+    flex-direction: row;
+    border: 1px solid black;
+    justify-content: space-between;
+    text-align: justify;
+    width: 100%;
+}
+
+
+
+
+.animal {
+    display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 80%;
+    width: 100%;
     height: 5em;
-    border: 1px solid black;
+    border: 1px solid #999;
     border-radius: 10px;
+    background-color: #fff;
+    margin-top: 10px;
 }
 
 
 .formularioCrearAnimal {
+
     width: 80%;
-    margin: 0 auto;
-    margin-top: 20px;
+    margin: 20px auto;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid black;
     padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    opacity: 0.9;
-    font-weight: bold;
+
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+textarea[name="observaciones"] {
+    width: calc(100% - 10px);
+    padding: 5px;
+    margin-bottom: 10px;
 }
 
 @media screen and (max-width: 768px) {

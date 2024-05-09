@@ -43,6 +43,7 @@ body {
 
 
 .eliminar {
+  font-weight: bold;
   color: black;
   display: inline-block;
   width: auto;
@@ -55,10 +56,12 @@ body {
 }
 
 .eliminar:hover {
+  font-weight: bold;
   background-color: rgb(146, 9, 9);
 }
 
 .editar {
+  font-weight: bold;
   color: black;
   display: inline-block;
   width: auto;
@@ -71,10 +74,12 @@ body {
 }
 
 .editar:hover {
+  font-weight: bold;
   background-color: rgb(127, 127, 9);
 }
 
 .realizado {
+  font-weight: bold;
   color: black;
   display: inline-block;
   width: auto;
@@ -87,5 +92,6 @@ body {
 }
 
 .realizado:hover {
+  font-weight: bold;
   background-color: rgb(5, 95, 5);
 }

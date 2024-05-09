@@ -9,6 +9,7 @@ import { EditarAnimalesComponent } from '../components/editar-animales/editar-an
 import { VehiculosComponent } from '../components/vehiculos/vehiculos.component';
 import { InfoVehiculosComponent } from '../components/info-vehiculos/info-vehiculos.component';
 import { EventosRealizadosComponent } from '../components/eventos-realizados/eventos-realizados.component';
+import { EditarVehiculoComponent } from '../components/editar-vehiculo/editar-vehiculo.component';
 
 export const routes: Routes = [
 
@@ -50,6 +51,10 @@ export const routes: Routes = [
     {
         path: 'eventos-realizados',
         component: EventosRealizadosComponent
+    },
+    {
+        path: 'editar-vehiculo/:id',
+        component: EditarVehiculoComponent
     },
     {
         path: '**',

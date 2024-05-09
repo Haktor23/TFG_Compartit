@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { FirebaseService } from '../../firebase.service';
 import { CommonModule } from '@angular/common';
 
@@ -14,7 +14,7 @@ export class InfoVehiculosComponent implements OnInit {
   vehiculoData: any;
   @Input() id?: string;
   vehiculoId: string;
-  constructor(private route: ActivatedRoute, private firebaseService: FirebaseService) { }
+  constructor(private router: Router, private firebaseService: FirebaseService) { }
 
   ngOnInit(): void {
     this.vehiculoId = this.id;
@@ -25,4 +25,18 @@ export class InfoVehiculosComponent implements OnInit {
     });
   }
 
+  eliminarVehiculo(vehiculoId: string): void {
+    this.firebaseService.eliminarVehiculo(vehiculoId).subscribe(() => {
+      console.log('Vehículo eliminado correctamente');
+      this.router.navigate(['/vehiculos']);
+    });
+  }
+
+  editarVehiculo(vehiculoId: string): void {
+    this.router.navigate(['/editar-vehiculo', vehiculoId]);
+  }
+
+  volverVerVehiculos(): void {
+    this.router.navigate(['/vehiculos']);
+  }
 }

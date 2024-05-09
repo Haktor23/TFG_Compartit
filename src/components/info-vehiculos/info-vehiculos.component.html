@@ -5,6 +5,7 @@
     <div class="separator"></div>
     <div class="data-container">
         <h2>Datos</h2>
+        <button (click)="volverVerVehiculos()">Volver a Vehiculos</button>
         <ul *ngIf="vehiculoId">
             <li><strong>Modelo:</strong> {{ vehiculoData?.modeloVehiculo }}</li>
             <li><strong>Matrícula:</strong> {{ vehiculoData?.matricula }}</li>
@@ -12,14 +13,8 @@
             <li><strong>Kilómetros:</strong> {{ vehiculoData?.km }}</li>
             <li><strong>Próxima ITV:</strong> {{ vehiculoData?.proximaItv }}</li>
             <li><strong>Observaciones:</strong> {{ vehiculoData?.observaciones }}</li>
-            <button>Eliminar</button>
-            <button>Editar</button>
+            <button (click)="eliminarVehiculo(vehiculoId)" class="eliminar">Eliminar</button>
+            <button (click)="editarVehiculo(vehiculoId)" class="editar">Editar</button>
         </ul>
     </div>
 </div>
-
-<!--
-            <button (click)="eliminarVehiculo(vehiculo.id)">Eliminar</button>
-            <button (click)="marcarComoLesionado(vehiculo.id)">Lesionado</button>
-            <button (click)="editarVehiculo(vehiculo.id)">Editar</button>
--->
