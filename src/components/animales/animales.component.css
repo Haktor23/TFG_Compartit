@@ -31,7 +31,7 @@
 .toro {
     display: flex;
     flex-direction: row;
-    border: 1px solid black;
+    border-top: solid 1px black;
     justify-content: space-between;
     text-align: justify;
 }
@@ -54,11 +54,24 @@
 .lesiones {
     display: flex;
     flex-direction: row;
-    border: 1px solid black;
+    border-top: solid 1px black;
     justify-content: space-between;
     text-align: justify;
     width: 100%;
 }
+
+.lesiones:last-of-type {
+    border-bottom: solid 1px black;
+}
+
+.vaca:last-of-type {
+    border-bottom: solid 1px black;
+}
+
+.toro:last-of-type {
+    border-bottom: solid 1px black;
+}
+
 
 
 
