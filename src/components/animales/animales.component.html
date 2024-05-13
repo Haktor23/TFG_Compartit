@@ -4,6 +4,7 @@
   <div class="row-animales">
 
     <div class="toros">
+      <h4 class="titulo">Toros</h4>
       <input type="text" [(ngModel)]="busquedatoro" placeholder="Buscar...">
       <select [(ngModel)]="campoBusquedaToro">
         <option value="nombre">Nombre</option>
@@ -25,6 +26,7 @@
 
     </div>
     <div class="vacas">
+      <h4 class="titulo">Vacas</h4>
       <input type="text" [(ngModel)]="busquedavaca" placeholder="Buscar...">
       <!-- Select para elegir el campo de búsqueda -->
       <select [(ngModel)]="campoBusquedaVaca">
@@ -55,6 +57,7 @@
 <!--**********************LESION**********************-->
 
 <div class="lesionados">
+  <h4 class="titulo">Animales lesionados</h4>
   @for (animal of animales; track $index) {
   @if (animal.datos.lesion==true) {
   <div class="lesiones">

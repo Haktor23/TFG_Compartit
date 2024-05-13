@@ -15,6 +15,7 @@ export class FirebaseService {
   database: any;
   email: string;
   password: string;
+  auth: any;
 
 
 
@@ -22,7 +23,12 @@ export class FirebaseService {
 
     this.app = initializeApp(firebaseConfig);
     this.database = getDatabase(this.app);
+    this.auth = getAuth();
   }
+
+
+
+
   firebaseConfig(firebaseConfig: any, arg1: string): any {
     throw new Error('Method not implemented.');
   }
