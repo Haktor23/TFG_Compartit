@@ -95,3 +95,52 @@ body {
   font-weight: bold;
   background-color: rgb(5, 95, 5);
 }
+
+.titulo {
+  display: flex;
+  justify-content: center;
+}
+
+.borde-gris {
+  display: flex;
+  background-color: #f0f0f0;
+  width: 15%;
+  height: 3em;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30px;
+  opacity: 0.8;
+}
+
+.tituloanimales {
+  height: 10%;
+  display: flex;
+  justify-content: center;
+}
+
+.boton-formulario {
+  background: linear-gradient(to right, #ff0000, #0000ff);
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 20px;
+  outline: none;
+
+  transition: background 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.boton-formulario:hover {
+  background: linear-gradient(to right, #0000ff, #ff0000);
+}
+
+.estilobotonForm {
+  justify-content: center;
+  display: flex;
+  margin-top: 2em;
+}

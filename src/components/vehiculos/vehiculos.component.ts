@@ -15,6 +15,7 @@ export class VehiculosComponent implements OnInit {
 
     vehiculos: any[] = [];
     nuevoVehiculo: any = {};
+    mostrarFormulario: boolean = false;
 
     constructor(private firebaseService: FirebaseService, private router: Router) { }
 
@@ -73,5 +74,9 @@ export class VehiculosComponent implements OnInit {
 
     infoVehiculo(id: string) {
         this.router.navigate(['/info-vehiculo', id]);
+    }
+
+    toggleFormulario() {
+        this.mostrarFormulario = !this.mostrarFormulario;
     }
 }

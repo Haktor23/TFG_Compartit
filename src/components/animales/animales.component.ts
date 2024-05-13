@@ -18,6 +18,8 @@ export class AnimalesComponent {
 
   animales: any[] = [];
   imagenSeleccionada: string;
+  mostrarFormulario: boolean = false;
+
 
 
 
@@ -85,7 +87,7 @@ export class AnimalesComponent {
         console.log('Animal creado correctamente.');
         formulario.reset();
         this.imagenBase64 = '';
-        this.animales = []; 
+        this.animales = [];
         this.obtenerdatos();
       }).catch(error => {
         console.error('Error al crear el animal:', error);
@@ -187,6 +189,12 @@ export class AnimalesComponent {
     });
   }
 
+
+  toggleFormulario() {
+    this.mostrarFormulario = !this.mostrarFormulario;
+  }
+
+  
 }
 
 

@@ -1,145 +1,70 @@
-.eventogeneral {
-    border: 1px solid #333;
-
-}
-
-
 .container {
     width: 80%;
     margin: 0 auto;
     margin-top: 20px;
     padding: 20px;
-
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     opacity: 0.9;
     font-weight: bold;
-    border: 1px solid black;
     /* Agrega un borde negro de 1px */
-}
-
-
-.modern-form {
-    margin-bottom: 20px;
-
-}
-
-.form-row {
-    display: flex;
-    margin-bottom: 15px;
-}
-
-.col {
-    flex: 1;
-    margin-right: 10px;
-}
-
-.form-group {
-    margin-bottom: 15px;
-}
-
-
-.btn-submit {
-    display: inline-block;
-    width: auto;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.btn-submit:hover {
-    background-color: #0056b3;
-}
-
-
-.numeroanimales {
-    width: 30%;
-}
-
-#precio {
-    width: 20%;
-}
-
-.eventoscercanos {
-    background-color: #f0f0f0;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
 }
 
 .evento {
     margin-bottom: 10px;
     padding: 10px;
-    border: 1px solid #999;
     border-radius: 5px;
     display: flex;
     justify-content: space-between;
     gap: 10px;
     flex-wrap: wrap;
     background-color: #f0f0f0;
-    /* Espacio entre cada campo */
 }
 
 .datos1 {
-
     /* Ajusta el ancho según tus necesidades */
     flex-direction: row;
     width: 50%;
-    border: 1px solid #999;
+    border: 1px solid black;
     border-radius: 5px;
     flex: 1;
-
 }
 
 .datos2 {
     /* Ajusta el ancho según tus necesidades */
-
     width: 50%;
-    border: 1px solid #999;
+    border: 1px solid black;
     border-radius: 5px;
     flex: 1;
-}
-
-.mostrardatos {
-    display: flex;
-}
-
-.campo {
-    font-weight: bold;
-    color: #333;
-}
-
-.valor {
-    color: #666;
 }
 
 .mostrarfecha {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid #999;
+    border: 1px solid black;
     width: 100%;
 }
 
-.fechacampo {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #333;
+.botones-dentro {
+    background-color: #f0f0f0;
+    margin-bottom: 5%;
+    border-radius: 10px;
 }
 
-.fechavalor {
-    font-size: 1.5em;
-    color: #666;
+.botones {
+    display: flex;
+    justify-content: center;
 }
 
+.espacio {
+    margin-left: 2%;
+    margin-right: 2%;
+}
 
-
-
+.espacio-bajo {
+    margin-bottom: 2%;
+}
 
 @media screen and (max-width: 568px) {
     .form-row {
@@ -180,10 +105,8 @@
         display: flex;
         flex-wrap: wrap;
         flex-direction: column;
-        border: 1px solid #999;
+        border: 1px solid black;
         height: max-content;
         width: 100%;
     }
-
-
 }

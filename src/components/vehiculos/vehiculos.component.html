@@ -1,33 +1,52 @@
 <app-header></app-header>
 <!-- Mostrar vehículos -->
-<table>
-    <thead>
-        <tr>
-            <th>Modelo Vehiculo</th>
-            <th>Matrícula</th>
-            <th>Número de Bastidor</th>
-            <th>Kilómetros</th>
-            <th>Próxima ITV</th>
-            <th>Observaciones</th>
-        </tr>
-    </thead>
-    <tbody>
-        @for (vehiculo of vehiculos; track $index) {
-        <tr>
-            <td>{{ vehiculo.modeloVehiculo }}</td>
-            <td>{{ vehiculo.matricula }}</td>
-            <td>{{ vehiculo.numeroBastidor }}</td>
-            <td>{{ vehiculo.km }}</td>
-            <td>{{ vehiculo.proximaItv }}</td>
-            <td>{{ vehiculo.observaciones }}</td>
-            <td><button (click)="infoVehiculo(vehiculo.id)" class="editar">Informacion</button></td>
-        </tr>
-        }
-    </tbody>
-</table>
+<div class="tituloanimales">
+    <h3 class="titulo borde-gris">Lista de vehiculos</h3>
+</div>
 
+<div>
+
+    <table>
+        <thead>
+
+            <tr>
+                <th>Modelo Vehiculo</th>
+                <th>Matrícula</th>
+                <th>Número de Bastidor</th>
+                <th>Kilómetros</th>
+                <th>Próxima ITV</th>
+                <th>Observaciones</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (vehiculo of vehiculos; track $index) {
+            <tr>
+                <td>{{ vehiculo.modeloVehiculo }}</td>
+                <td>{{ vehiculo.matricula }}</td>
+                <td>{{ vehiculo.numeroBastidor }}</td>
+                <td>{{ vehiculo.km }}</td>
+                <td>{{ vehiculo.proximaItv }}</td>
+                <td>{{ vehiculo.observaciones }}</td>
+                <td><button (click)="infoVehiculo(vehiculo.id)" class="editar">Informacion</button></td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
 <!-- Formulario para añadir vehículos -->
+
+<div class="estilobotonForm">
+    @if(mostrarFormulario==false){
+    <button (click)="toggleFormulario()" class="boton-formulario">Mostrar formulario añadir vehiculos</button>
+    }@else{
+    <button (click)="toggleFormulario()" class="boton-formulario">Cerrar Formulario</button>
+    }
+</div>
+
+@if (mostrarFormulario) {
 <form (ngSubmit)="agregarVehiculo()" #vehiculoForm="ngForm">
+    <h3 class="titulo"> Añadir vehiculos:</h3>
     <label>Modelo Vehiculo:</label>
     <input type="text" name="modeloVehiculo" [(ngModel)]="nuevoVehiculo.modeloVehiculo" required>
 
@@ -48,3 +67,4 @@
 
     <button type="submit" [disabled]="vehiculoForm.invalid" class="realizado">Añadir Vehículo</button>
 </form>
+}

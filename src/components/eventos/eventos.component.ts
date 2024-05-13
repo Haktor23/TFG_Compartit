@@ -3,13 +3,14 @@ import { FirebaseService } from '../../firebase.service';
 import { HeaderComponent } from '../header/header.component';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-crearevento',
   standalone: true,
   templateUrl: './eventos.component.html',
   styleUrl: './eventos.component.css',
-  imports: [HeaderComponent, FormsModule, RouterModule]
+  imports: [HeaderComponent, FormsModule, RouterModule, CommonModule]
 })
 export class EventosComponent implements OnInit {
 
@@ -18,13 +19,37 @@ export class EventosComponent implements OnInit {
   eventoEditando: any = null;
   eventoEditandoIndex: number | null = null;
   fechaSeleccionada: Date | null = null;
+  mesSeleccionado: number | null = null;
+  anioSeleccionado: number | null = null;
+
+
+  meses = [
+    { nombre: 'Enero', numero: 1 },
+    { nombre: 'Febrero', numero: 2 },
+    { nombre: 'Marzo', numero: 3 },
+    { nombre: 'Abril', numero: 4 },
+    { nombre: 'Mayo', numero: 5 },
+    { nombre: 'Junio', numero: 6 },
+    { nombre: 'Julio', numero: 7 },
+    { nombre: 'Agosto', numero: 8 },
+    { nombre: 'Septiembre', numero: 9 },
+    { nombre: 'Octubre', numero: 10 },
+    { nombre: 'Noviembre', numero: 11 },
+    { nombre: 'Diciembre', numero: 12 }
+  ];
+
+  anios: number[] = [];
 
 
   constructor(private firebaseService: FirebaseService, private router: Router) { }
 
   ngOnInit(): void {
     this.obtenerEventos();
+   /* this.anios = this.getAniosSiguientes();
+    this.anios = this.anios.filter((valor, indice, self) => self.indexOf(valor) === indice); // Eliminar duplicados*/
   }
+
+
   obtenerEventos() {
     this.firebaseService.obtenerEventos().subscribe(
       (snapshot: any) => {
@@ -86,8 +111,33 @@ export class EventosComponent implements OnInit {
       })
       .catch(error => console.error('Error al marcar el evento como realizado:', error));
   }
+/*
+  filtrarPorMesYAnio() {
+    if (this.mesSeleccionado !== null && this.anioSeleccionado !== null) {
+      console.log("Mes seleccionado:", this.mesSeleccionado);
+      console.log("Año seleccionado:", this.anioSeleccionado);
+
+      this.eventos = this.eventosOriginales.filter(evento => {
+        const fechaEvento = new Date(evento.datos.fecha);
+        const mesEvento = fechaEvento.getMonth() + 1; // Sumamos 1 porque los meses van de 0 a 11
+        const anioEvento = fechaEvento.getFullYear();
+       0 console.log("Mes del evento:", mesEvento, evento.datos.fecha);
+        console.log("Año del evento:", anioEvento);
+       
+        console.log(mesEvento === this.mesSeleccionado && anioEvento === this.anioSeleccionado);
+
+        return mesEvento === this.mesSeleccionado && anioEvento === this.anioSeleccionado;
+      });
+    } else {
+      this.eventos = this.eventosOriginales.slice(); // Restaurar la lista original de eventos
+    }
+  }
 
 
 
-
+  getAniosSiguientes(): number[] {
+    const anioActual = new Date().getFullYear();
+    return [anioActual, anioActual + 1, anioActual + 2, anioActual + 3];
+  }
+*/
 }

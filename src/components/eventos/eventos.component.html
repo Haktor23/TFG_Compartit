@@ -1,35 +1,58 @@
 <app-header></app-header>
 <div class="eventogeneral">
     <div class="container">
+        <div class="tituloanimales">
+            <h3 class="titulo borde-gris">Lista de animales</h3>
+        </div>
+
         <input type="date" [(ngModel)]="fechaSeleccionada" (change)="filtrarPorFecha()">
         <button [routerLink]="['/eventos-realizados']">Eventos realizados</button>
 
+
+        <!--    <label for="mes">Selecciona el mes:</label>
+        <select id="mes" [(ngModel)]="mesSeleccionado">
+            <option *ngFor="let mes of meses" [value]="mes.numero">{{ mes.nombre }}</option>
+        </select>
+
+        <label for="anio">Selecciona el año:</label>
+        <select id="anio" [(ngModel)]="anioSeleccionado">
+            <option *ngFor="let anio of anios" [value]="anio">{{ anio }}</option>
+        </select>
+
+        <button (click)="filtrarPorMesYAnio()">Filtrar</button>
+    -->
+
         @for (item of eventos; track $index) {
         @if (!item.datos.estado) {
-        <div class="evento">
-            <div class="mostrarfecha">
-                <h3>{{ item.datos.fecha}}</h3>
+        <div class="botones-dentro">
+            <div class="evento">
+                <div class="mostrarfecha">
+                    <h3>{{ item.datos.fecha}}</h3>
+                </div>
+                <div class="datos1">
+                    <h4>Hora: {{ item.datos.hora}}</h4>
+                    <h4>Pueblo: {{ item.datos.pueblo}}</h4>
+                    <h4>Ubicación: <a href="{{ item.datos.ubicacion}}">Ubicacion</a></h4>
+                    <h4>Espectaculo: {{ item.datos.nombreEspectaculo}}</h4>
+                </div>
+                <div class="datos2">
+                    <h4>Vacas: {{ item.datos.vacas}}</h4>
+                    <h4>Toros: {{ item.datos.toro}}</h4>
+                    <h4>Capon: {{ item.datos.capon}}</h4>
+                    <h4>Datos adicionales: {{ item.datos.otros}}</h4>
+                    <h4>Precio: {{ item.datos.precio}}</h4>
+                </div>
             </div>
-            <div class="datos1">
-                <h4>Hora: {{ item.datos.hora}}</h4>
-                <h4>Pueblo: {{ item.datos.pueblo}}</h4>
-                <h4>Ubicación: <a href="{{ item.datos.ubicacion}}">Ubicacion</a></h4>
-                <h4>Espectaculo: {{ item.datos.nombreEspectaculo}}</h4>
-            </div>
-            <div class="datos2">
-                <h4>Vacas: {{ item.datos.vacas}}</h4>
-                <h4>Toros: {{ item.datos.toro}}</h4>
-                <h4>Capon: {{ item.datos.capon}}</h4>
-                <h4>Datos adicionales: {{ item.datos.otros}}</h4>
-                <h4>Precio: {{ item.datos.precio}}</h4>
+
+            <div class="botones">
+                <button class="eliminar espacio-bajo" (click)="eliminarEvento(item.id)">Eliminar</button>
+                <button [routerLink]="['/editar-evento', item.id]"
+                    class="btn btn-primary editar espacio espacio-bajo">Editar</button>
+                <button class="realizado espacio-bajo" (click)="marcarComoRealizado(item.id)">Marcar como
+                    realizado</button>
+
             </div>
         </div>
-
-
-        <button class="eliminar" (click)="eliminarEvento(item.id)">Eliminar</button>
-        <button  [routerLink]="['/editar-evento', item.id]" class="btn btn-primary editar">Editar</button>
-        <button class="realizado" (click)="marcarComoRealizado(item.id)">Marcar como realizado</button>
-
         }
         }
     </div>
