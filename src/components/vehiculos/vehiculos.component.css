@@ -10,9 +10,9 @@ th,
 td {
     padding: 8px;
 }
-tr {
-    border-top: solid 1px black;
-}
+
+tr {}
+
 
 
 form {
@@ -30,4 +30,33 @@ textarea[name="observaciones"] {
     width: calc(100% - 10px);
     padding: 5px;
     margin-bottom: 10px;
+}
+
+.borde {
+    border: 1px solid black;
+}
+
+.borde:first-of-type {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+@media (min-width: 769px) {
+    .tablaVehiculosMovil {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .tablaVehiculosGrande {
+        display: none;
+    }
+
+    table {
+        display: flex;
+        width: 80%;
+        flex-direction: column;
+    }
+
 }

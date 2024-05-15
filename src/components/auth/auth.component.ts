@@ -17,7 +17,7 @@ export class AuthComponent {
   constructor(private firebaseService: FirebaseService, private router: Router) { }
 
   ngOnInit() {
-    if (Token == null) {
+    if (AuthenticatorAssertionResponse == null) {
       this.router.navigate(['/login']);
     }
   }
@@ -33,10 +33,12 @@ export class AuthComponent {
     const { email, password } = this.form.value;
     try {
       await this.firebaseService.login(email, password);
+      // Si el inicio de sesión es exitoso, navega a '/evento'
       this.router.navigate(['/evento']);
     } catch (error) {
-      // Manejar el error de inicio de sesión
+      // Si hay un error durante el inicio de sesión, establece el mensaje de error
       this.error = "Correo electrónico o contraseña incorrectos.";
+      // Alternativamente, puedes limpiar el formulario u realizar otras acciones relacionadas con el error aquí
     }
   }
 }

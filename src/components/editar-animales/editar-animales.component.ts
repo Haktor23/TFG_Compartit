@@ -29,6 +29,7 @@ export class EditarAnimalesComponent implements OnInit {
   guardarCambios() {
     this.firebaseService.actualizarAnimal(this.animalId, this.animalData).then(() => {
       console.log('Animal actualizado correctamente');
+      this.router.navigate(['/info-animales/' + this.animalId]);
     }).catch(error => {
       console.error('Error al actualizar el animal:', error);
     });

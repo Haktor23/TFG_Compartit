@@ -128,8 +128,14 @@ textarea[name="observaciones"] {
         margin-top: 2em;
     }
 
-    .toro {
-        flex-wrap: wrap;
+    .lesionados {
+        width: 80%;
+    }
+
+    .toro,
+    .vaca,
+    .lesiones {
+        flex-direction: column;
     }
 
 }

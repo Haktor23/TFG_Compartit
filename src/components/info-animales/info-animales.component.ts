@@ -1,11 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { FirebaseService } from '../../firebase.service';
 
 @Component({
   selector: 'app-info-animales',
   standalone: true,
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './info-animales.component.html',
   styleUrl: './info-animales.component.css'
 })

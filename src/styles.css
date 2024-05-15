@@ -96,6 +96,24 @@ body {
   background-color: rgb(5, 95, 5);
 }
 
+.volver {
+  font-weight: bold;
+  color: black;
+  display: inline-block;
+  width: auto;
+  padding: 10px 20px;
+  background-color: rgb(185, 183, 183);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.volver:hover {
+  font-weight: bold;
+  background-color: rgb(121, 123, 121);
+}
+
 .titulo {
   display: flex;
   justify-content: center;
@@ -104,12 +122,13 @@ body {
 .borde-gris {
   display: flex;
   background-color: #f0f0f0;
-  width: 15%;
+
   height: 3em;
   align-items: center;
   justify-content: center;
   border-radius: 30px;
   opacity: 0.8;
+  padding: 0 1em;
 }
 
 .tituloanimales {
