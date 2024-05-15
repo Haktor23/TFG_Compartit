@@ -20,13 +20,10 @@ export class FirebaseService {
 
 
   constructor() {
-
     this.app = initializeApp(firebaseConfig);
     this.database = getDatabase(this.app);
     this.auth = getAuth();
   }
-
-
 
 
   firebaseConfig(firebaseConfig: any, arg1: string): any {

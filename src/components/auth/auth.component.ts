@@ -1,7 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { User } from './user.model';
 import { Router } from '@angular/router';
 import { FirebaseService } from '../../firebase.service';
 import { Token } from '@angular/compiler';

@@ -111,6 +111,8 @@ export class EventosComponent implements OnInit {
       })
       .catch(error => console.error('Error al marcar el evento como realizado:', error));
   }
+
+  
 /*
   filtrarPorMesYAnio() {
     if (this.mesSeleccionado !== null && this.anioSeleccionado !== null) {

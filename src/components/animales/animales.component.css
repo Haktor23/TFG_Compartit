@@ -118,12 +118,18 @@ textarea[name="observaciones"] {
     }
 
     .toros {
-        width: 80%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
     }
 
     .vacas {
-        width: 80%;
+        width: 100%;
         margin-top: 2em;
+    }
+
+    .toro {
+        flex-wrap: wrap;
     }
 
 }
