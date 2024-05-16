@@ -1,32 +1,44 @@
 <app-header></app-header>
 <div class="eventogeneral">
-    <h2>Eventos realizados</h2>
-    <div class="container">
-        <input type="date" [(ngModel)]="fechaSeleccionada" (change)="filtrarPorFecha()">
+    <div class="tituloanimales">
+        <h2 class="titulo borde-gris">Eventos realizados</h2>
+    </div>
 
+    <div class="container">
+        <div class="opciones">
+            <input type="date" [(ngModel)]="fechaSeleccionada" (change)="filtrarPorFecha()">
+            <button class="botonazul" [routerLink]="['/evento']" routerLinkActive="router-link-active">Volver a
+                eventos</button>
+        </div>
         @for (item of eventos; track $index) {
         @if (item.datos.estado) {
-        <div class="evento">
-            <div class="mostrarfecha">
-                <h3>{{ item.datos.fecha}}</h3>
+        <div class="botones-dentro">
+            <div class="evento">
+                <div class="mostrarfecha">
+                    <h3>{{ item.datos.fecha}}</h3>
+                </div>
+                <div class="datos1">
+                    <h4>Hora: {{ item.datos.hora}}</h4>
+                    <h4>Pueblo: {{ item.datos.pueblo}}</h4>
+                    <h4>Ubicación: <a href="{{ item.datos.ubicacion}}">Ubicacion</a></h4>
+                    <h4>Espectaculo: {{ item.datos.nombreEspectaculo}}</h4>
+                </div>
+                <div class="datos2">
+                    <h4>Vacas: {{ item.datos.vacas}}</h4>
+                    <h4>Toros: {{ item.datos.toro}}</h4>
+                    <h4>Capon: {{ item.datos.capon}}</h4>
+                    <h4>Datos adicionales: {{ item.datos.otros}}</h4>
+                    <h4>Precio: {{ item.datos.precio}}</h4>
+                </div>
             </div>
-            <div class="datos1">
-                <h4>Hora: {{ item.datos.hora}}</h4>
-                <h4>Pueblo: {{ item.datos.pueblo}}</h4>
-                <h4>Ubicación: <a href="{{ item.datos.ubicacion}}">Ubicacion</a></h4>
-                <h4>Espectaculo: {{ item.datos.nombreEspectaculo}}</h4>
+            <div class="botones">
+                <button (click)="eliminarEvento(item.id)" class="eliminar">Eliminar</button>
             </div>
-            <div class="datos2">
-                <h4>Vacas: {{ item.datos.vacas}}</h4>
-                <h4>Toros: {{ item.datos.toro}}</h4>
-                <h4>Capon: {{ item.datos.capon}}</h4>
-                <h4>Datos adicionales: {{ item.datos.otros}}</h4>
-                <h4>Precio: {{ item.datos.precio}}</h4>
-            </div>
+
         </div>
 
 
-        <button (click)="eliminarEvento(item.id)" class="eliminar">Eliminar</button>
+
 
         }
         }

@@ -21,6 +21,19 @@
     background-color: #f0f0f0;
 }
 
+.filtros {
+    display: flex;
+    justify-content: space-around;
+}
+
+.filtroDia {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.filtroMesAnyo {}
+
 .datos1 {
     /* Ajusta el ancho según tus necesidades */
     flex-direction: row;
@@ -64,6 +77,10 @@
 
 .espacio-bajo {
     margin-bottom: 2%;
+}
+
+div>h4 {
+    padding: 5px;
 }
 
 @media screen and (max-width: 568px) {

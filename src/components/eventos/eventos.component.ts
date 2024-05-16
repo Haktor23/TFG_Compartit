@@ -4,6 +4,7 @@ import { HeaderComponent } from '../header/header.component';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { log } from 'node:console';
 
 @Component({
   selector: 'app-crearevento',
@@ -38,15 +39,15 @@ export class EventosComponent implements OnInit {
     { nombre: 'Diciembre', numero: 12 }
   ];
 
-  anios: number[] = [];
+  anios: number[] = this.getAniosSiguientes();
 
 
   constructor(private firebaseService: FirebaseService, private router: Router) { }
 
   ngOnInit(): void {
     this.obtenerEventos();
-   /* this.anios = this.getAniosSiguientes();
-    this.anios = this.anios.filter((valor, indice, self) => self.indexOf(valor) === indice); // Eliminar duplicados*/
+    /* this.anios = this.getAniosSiguientes();
+     this.anios = this.anios.filter((valor, indice, self) => self.indexOf(valor) === indice); // Eliminar duplicados*/
   }
 
 
@@ -112,27 +113,28 @@ export class EventosComponent implements OnInit {
       .catch(error => console.error('Error al marcar el evento como realizado:', error));
   }
 
-  
-/*
-  filtrarPorMesYAnio() {
-    if (this.mesSeleccionado !== null && this.anioSeleccionado !== null) {
-      console.log("Mes seleccionado:", this.mesSeleccionado);
-      console.log("Año seleccionado:", this.anioSeleccionado);
 
+
+  filtrarPorMesYAnio() {
+    console.log("Mes seleccionado:", this.mesSeleccionado);
+
+    if (this.mesSeleccionado !== null && this.anioSeleccionado !== null) {
       this.eventos = this.eventosOriginales.filter(evento => {
+
         const fechaEvento = new Date(evento.datos.fecha);
         const mesEvento = fechaEvento.getMonth() + 1; // Sumamos 1 porque los meses van de 0 a 11
         const anioEvento = fechaEvento.getFullYear();
-       0 console.log("Mes del evento:", mesEvento, evento.datos.fecha);
-        console.log("Año del evento:", anioEvento);
-       
-        console.log(mesEvento === this.mesSeleccionado && anioEvento === this.anioSeleccionado);
 
-        return mesEvento === this.mesSeleccionado && anioEvento === this.anioSeleccionado;
+
+        console.log(mesEvento == this.mesSeleccionado && anioEvento == this.anioSeleccionado);
+
+        return mesEvento == this.mesSeleccionado && anioEvento == this.anioSeleccionado;
       });
     } else {
       this.eventos = this.eventosOriginales.slice(); // Restaurar la lista original de eventos
     }
+    console.log("Eventos filtrados:", this.eventos);
+
   }
 
 
@@ -141,5 +143,5 @@ export class EventosComponent implements OnInit {
     const anioActual = new Date().getFullYear();
     return [anioActual, anioActual + 1, anioActual + 2, anioActual + 3];
   }
-*/
+
 }

@@ -1,7 +1,6 @@
-
-.eventogeneral{
+.eventogeneral {
     border: 1px solid #333;
-    
+
 }
 
 
@@ -10,18 +9,19 @@
     margin: 0 auto;
     margin-top: 20px;
     padding: 20px;
-   
+
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     opacity: 0.9;
     font-weight: bold;
-    border: 1px solid black; /* Agrega un borde negro de 1px */
+    border: 1px solid black;
+    /* Agrega un borde negro de 1px */
 }
 
 
 .modern-form {
     margin-bottom: 20px;
-    
+
 }
 
 .form-row {
@@ -137,6 +137,21 @@
     color: #666;
 }
 
+.opciones {
+    display: flex;
+    justify-content: space-around;
+}
+
+.botones {
+    display: flex;
+    justify-content: center;
+}
+
+.botones-dentro {
+    background-color: #f0f0f0;
+    margin-bottom: 5%;
+    border-radius: 10px;
+}
 
 
 @media screen and (max-width: 568px) {

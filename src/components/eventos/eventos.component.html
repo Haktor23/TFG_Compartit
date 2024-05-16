@@ -4,23 +4,34 @@
         <div class="tituloanimales">
             <h3 class="titulo borde-gris">Lista de animales</h3>
         </div>
+        <div class="filtros">
+            <button [routerLink]="['/eventos-realizados']" class="botonazul">Eventos realizados</button>
 
-        <input type="date" [(ngModel)]="fechaSeleccionada" (change)="filtrarPorFecha()">
-        <button [routerLink]="['/eventos-realizados']">Eventos realizados</button>
+            <div class="filtroDia">
+                <label for="fechadia">Selecciona el dia:</label>
+                <input type="date" [(ngModel)]="fechaSeleccionada" (change)="filtrarPorFecha()">
+
+                <div class="filtroMesAnyo">
+                    <label for="mes">Selecciona el mes:</label>
+                    <select id="mes" [(ngModel)]="mesSeleccionado">
+                        <option *ngFor="let mes of meses" [value]="mes.numero">{{ mes.nombre }}</option>
+                    </select>
+
+                    <label for="anio">Selecciona el año:</label>
+                    <select id="anio" [(ngModel)]="anioSeleccionado">
+                        <option *ngFor="let anio of anios" [value]="anio">{{ anio }}</option>
+                    </select>
+
+                    <button (click)="filtrarPorMesYAnio()" class="botonazul">Filtrar</button>
+                </div>
+            </div>
 
 
-        <!--    <label for="mes">Selecciona el mes:</label>
-        <select id="mes" [(ngModel)]="mesSeleccionado">
-            <option *ngFor="let mes of meses" [value]="mes.numero">{{ mes.nombre }}</option>
-        </select>
+        </div>
 
-        <label for="anio">Selecciona el año:</label>
-        <select id="anio" [(ngModel)]="anioSeleccionado">
-            <option *ngFor="let anio of anios" [value]="anio">{{ anio }}</option>
-        </select>
-
-        <button (click)="filtrarPorMesYAnio()">Filtrar</button>
-    -->
+        <div *ngIf="eventos.length === 0">
+            <h1>No hay eventos para esta fecha</h1>
+        </div>
 
         @for (item of eventos; track $index) {
         @if (!item.datos.estado) {
@@ -55,5 +66,6 @@
         </div>
         }
         }
+
     </div>
 </div>
