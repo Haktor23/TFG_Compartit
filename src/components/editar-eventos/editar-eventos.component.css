@@ -1,13 +1,14 @@
 .container {
     width: 80%;
-    margin: 0 auto;
-    margin-top: 20px;
+    margin: 20px auto;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid black;
     padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    opacity: 0.9;
     font-weight: bold;
+}
+
+.modern-form {
+    margin-bottom: 20px;
 }
 
 .form-row {
@@ -20,17 +21,23 @@
     margin-right: 10px;
 }
 
-.label-input {
-    display: flex;
-    flex-direction: column;
+.form-group {
     margin-bottom: 15px;
 }
 
 label {
+    display: block;
     margin-bottom: 5px;
 }
 
-input, select {
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid gray;
+    box-sizing: border-box;
+}
+
+select {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
@@ -38,6 +45,68 @@ input, select {
     box-sizing: border-box;
 }
 
+.btn-submit {
+    display: inline-block;
+    width: auto;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-submit:hover {
+    background-color: #0056b3;
+}
 
 
 
+
+@media screen and (max-width: 568px) {
+    .form-row {
+        flex-direction: column;
+    }
+
+    .col {
+        margin-right: 0;
+    }
+
+    .col:last-child {
+        margin-bottom: 15px;
+    }
+
+    .numeroanimales {
+        width: 20%;
+    }
+
+    #precio {
+        width: 50%;
+    }
+
+    .evento {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .datos1 {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        border: 1px solid #999;
+        width: 100%;
+    }
+
+    .datos2 {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        border: 1px solid #999;
+        height: max-content;
+        width: 100%;
+    }
+
+
+}

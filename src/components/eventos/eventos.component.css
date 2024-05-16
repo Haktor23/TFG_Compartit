@@ -1,5 +1,5 @@
 .container {
-    width: 80%;
+    width: 88%;
     margin: 0 auto;
     margin-top: 20px;
     padding: 20px;
@@ -7,7 +7,7 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     opacity: 0.9;
     font-weight: bold;
-    /* Agrega un borde negro de 1px */
+
 }
 
 .evento {
@@ -24,6 +24,7 @@
 .filtros {
     display: flex;
     justify-content: space-around;
+    margin-bottom: 5px;
 }
 
 .filtroDia {
@@ -32,10 +33,9 @@
     flex-direction: column;
 }
 
-.filtroMesAnyo {}
 
 .datos1 {
-    /* Ajusta el ancho según tus necesidades */
+
     flex-direction: row;
     width: 50%;
     border: 1px solid black;
@@ -114,7 +114,7 @@ div>h4 {
         display: flex;
         flex-wrap: wrap;
         flex-direction: column;
-        border: 1px solid #999;
+        border: 1px solid black;
         width: 100%;
     }
 
@@ -125,5 +125,9 @@ div>h4 {
         border: 1px solid black;
         height: max-content;
         width: 100%;
+    }
+
+    .botones {
+        padding: 5px;
     }
 }

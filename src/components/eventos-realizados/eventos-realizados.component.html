@@ -1,12 +1,17 @@
 <app-header></app-header>
-<div class="eventogeneral">
-    <div class="tituloanimales">
-        <h2 class="titulo borde-gris">Eventos realizados</h2>
-    </div>
+<div class="container">
 
-    <div class="container">
+    <div class="eventogeneral">
+        <div class="tituloanimales">
+            <h2 class="titulo borde-gris">Eventos realizados</h2>
+        </div>
+
+
         <div class="opciones">
-            <input type="date" [(ngModel)]="fechaSeleccionada" (change)="filtrarPorFecha()">
+            <div class="filtroDia" style="display: flex;">
+                <label for="fechadia">Selecciona el dia para ver los eventos: </label>
+                <input type="date" [(ngModel)]="fechaSeleccionada" (change)="filtrarPorFecha()">
+            </div>
             <button class="botonazul" [routerLink]="['/evento']" routerLinkActive="router-link-active">Volver a
                 eventos</button>
         </div>

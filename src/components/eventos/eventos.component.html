@@ -2,13 +2,15 @@
 <div class="eventogeneral">
     <div class="container">
         <div class="tituloanimales">
-            <h3 class="titulo borde-gris">Lista de animales</h3>
+            <h3 class="titulo borde-gris">Lista de eventos</h3>
         </div>
         <div class="filtros">
-            <button [routerLink]="['/eventos-realizados']" class="botonazul">Eventos realizados</button>
+            <div class="botonEvenReal" style="display: flex; align-items: center;">
+                <button [routerLink]="['/eventos-realizados']" class="botonazul">Eventos realizados</button>
+            </div>
 
             <div class="filtroDia">
-                <label for="fechadia">Selecciona el dia:</label>
+                <label for="fechadia">Selecciona el dia para ver los eventos:</label>
                 <input type="date" [(ngModel)]="fechaSeleccionada" (change)="filtrarPorFecha()">
 
                 <div class="filtroMesAnyo">

@@ -1,19 +1,41 @@
+.container {
+    margin: 0 auto;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    opacity: 0.9;
+    font-weight: bold;
+    width: 88%;
+}
+
 table {
     width: 80%;
     margin: 20px auto;
     background-color: rgba(255, 255, 255, 0.8);
     border-collapse: collapse;
     border-radius: 20px;
+    border-radius: 15px;
 }
 
 th,
 td {
     padding: 8px;
+
 }
 
-tr {}
+tr {
+    border-radius: 15px;
+}
+
+.container {
 
 
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    opacity: 0.9;
+    font-weight: bold;
+}
 
 form {
     width: 80%;
@@ -41,6 +63,11 @@ textarea[name="observaciones"] {
     border-top-right-radius: 15px;
 }
 
+.borde:last-of-type {
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
 @media (min-width: 769px) {
     .tablaVehiculosMovil {
         display: none;
@@ -55,7 +82,7 @@ textarea[name="observaciones"] {
 
     table {
         display: flex;
-        width: 80%;
+        width: 95%;
         flex-direction: column;
     }
 
