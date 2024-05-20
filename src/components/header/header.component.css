@@ -20,8 +20,24 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-  color: #ffd700; /* Cambia de color cuando se pasa el mouse */
+  color: #ffd700;
+  /* Cambia de color cuando se pasa el mouse */
 }
-a{
+
+a {
   cursor: pointer;
+}
+
+
+@media (min-width: 769px) {
+  .paramv {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .parapc {
+    display: none;
+  }
 }
