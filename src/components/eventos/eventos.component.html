@@ -32,7 +32,10 @@
         </div>
 
         <div *ngIf="eventos.length === 0">
-            <h1>No hay eventos para esta fecha</h1>
+            <h1>No hay eventos para esta fecha: <button class="eliminar" (click)="eliminarFiltros()">Eliminar
+                    Filtros</button>
+            </h1>
+
         </div>
 
         @for (item of eventos; track $index) {
@@ -71,3 +74,5 @@
 
     </div>
 </div>
+
+<app-footer></app-footer>

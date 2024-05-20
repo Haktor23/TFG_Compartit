@@ -2,13 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FirebaseService } from '../../firebase.service';
 import { FormsModule } from '@angular/forms';
+import { FooterComponent } from "../footer/footer.component";
 
 @Component({
-  selector: 'app-editar-eventos',
-  standalone: true,
-  imports: [FormsModule],
-  templateUrl: './editar-eventos.component.html',
-  styleUrl: './editar-eventos.component.css'
+    selector: 'app-editar-eventos',
+    standalone: true,
+    templateUrl: './editar-eventos.component.html',
+    styleUrl: './editar-eventos.component.css',
+    imports: [FormsModule, FooterComponent]
 })
 export class EditarEventosComponent implements OnInit {
   evento: any; // Objeto para almacenar los datos del evento a editar

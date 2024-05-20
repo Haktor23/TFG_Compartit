@@ -2,13 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FirebaseService } from '../../firebase.service';
 import { FormsModule } from '@angular/forms';
+import { FooterComponent } from "../footer/footer.component";
 
 @Component({
-  selector: 'app-editar-animales',
-  standalone: true,
-  imports: [FormsModule],
-  templateUrl: './editar-animales.component.html',
-  styleUrl: './editar-animales.component.css'
+    selector: 'app-editar-animales',
+    standalone: true,
+    templateUrl: './editar-animales.component.html',
+    styleUrl: './editar-animales.component.css',
+    imports: [FormsModule, FooterComponent]
 })
 export class EditarAnimalesComponent implements OnInit {
   animalId: string;

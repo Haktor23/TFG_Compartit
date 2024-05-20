@@ -4,14 +4,15 @@ import { FirebaseService } from '../../firebase.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { HeaderComponent } from "../header/header.component";
+import { FooterComponent } from "../footer/footer.component";
 
 
 @Component({
-  selector: 'app-animales',
-  standalone: true,
-  templateUrl: './animales.component.html',
-  styleUrl: './animales.component.css',
-  imports: [RouterOutlet, CommonModule, ReactiveFormsModule, FormsModule, HeaderComponent]
+    selector: 'app-animales',
+    standalone: true,
+    templateUrl: './animales.component.html',
+    styleUrl: './animales.component.css',
+    imports: [RouterOutlet, CommonModule, ReactiveFormsModule, FormsModule, HeaderComponent, FooterComponent]
 })
 export class AnimalesComponent {
 
@@ -156,15 +157,13 @@ export class AnimalesComponent {
       return this.animales; // Si no hay término de búsqueda, retornar todos los animales
     }
 
-
-
     return this.animales.filter(animal => {
-      // Filtrar animales según el campo seleccionado y el término de búsqueda
+      // Filtrar animals segons el camp seleccionat i el terme de busca
       if (this.campoBusquedaVaca === 'nombre') {
         return animal.datos.nombre.toLowerCase().includes(this.busquedavaca.toLowerCase());
       } else if (this.campoBusquedaVaca === 'numero') {
         return animal.datos.numero.toString().includes(this.busquedavaca);
-      } else if (this.campoBusquedaVaca === 'guarismo') { // Agregado para el campo guarismo
+      } else if (this.campoBusquedaVaca === 'guarismo') { 
         return animal.datos.guarismo.toString().includes(this.busquedavaca);
       }
     });

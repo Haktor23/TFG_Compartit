@@ -30,18 +30,16 @@ export class FirebaseService {
     throw new Error('Method not implemented.');
   }
 
+  /*Deu retornar una promesa*/
 
   login = (email: string, password: string) => {
     const auth = getAuth();
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential: UserCredential) => {
-        // Si el inicio de sesión es exitoso, el código dentro de este bloque se ejecutará
         console.log("Inicio de sesión exitoso");
         const user = userCredential.user;
-        console.log("Usuario:", user);
       })
       .catch((error) => {
-        // Si hay un error durante el inicio de sesión, el código dentro de este bloque se ejecutará
         const errorCode = error.code;
         const errorMessage = error.message;
         console.error("Error durante el inicio de sesión:", errorCode, errorMessage);

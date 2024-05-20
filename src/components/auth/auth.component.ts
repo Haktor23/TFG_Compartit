@@ -1,25 +1,23 @@
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FirebaseService } from '../../firebase.service';
-import { Token } from '@angular/compiler';
+import { FooterComponent } from "../footer/footer.component";
 
 @Component({
   selector: 'app-auth',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, FormsModule],
   templateUrl: './auth.component.html',
-  styleUrl: './auth.component.css'
+  styleUrl: './auth.component.css',
+  imports: [CommonModule, ReactiveFormsModule, FormsModule, FooterComponent]
 })
 export class AuthComponent {
 
   constructor(private firebaseService: FirebaseService, private router: Router) { }
 
   ngOnInit() {
-    if (AuthenticatorAssertionResponse == null) {
-      this.router.navigate(['/login']);
-    }
+
   }
 
   error: String;
@@ -33,12 +31,9 @@ export class AuthComponent {
     const { email, password } = this.form.value;
     try {
       await this.firebaseService.login(email, password);
-      // Si el inicio de sesión es exitoso, navega a '/evento'
       this.router.navigate(['/evento']);
     } catch (error) {
-      // Si hay un error durante el inicio de sesión, establece el mensaje de error
       this.error = "Correo electrónico o contraseña incorrectos.";
-      // Alternativamente, puedes limpiar el formulario u realizar otras acciones relacionadas con el error aquí
     }
   }
 }

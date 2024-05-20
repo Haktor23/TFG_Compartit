@@ -3,13 +3,14 @@ import { FirebaseService } from '../../firebase.service';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { HeaderComponent } from "../header/header.component";
 import { Router } from '@angular/router';
+import { FooterComponent } from "../footer/footer.component";
 
 @Component({
     selector: 'app-vehiculos',
     standalone: true,
     templateUrl: './vehiculos.component.html',
     styleUrl: './vehiculos.component.css',
-    imports: [FormsModule, HeaderComponent, ReactiveFormsModule]
+    imports: [FormsModule, HeaderComponent, ReactiveFormsModule, FooterComponent]
 })
 export class VehiculosComponent implements OnInit {
 

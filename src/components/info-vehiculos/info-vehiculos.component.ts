@@ -2,13 +2,14 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FirebaseService } from '../../firebase.service';
 import { CommonModule } from '@angular/common';
+import { FooterComponent } from "../footer/footer.component";
 
 @Component({
-  selector: 'app-info-vehiculos',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './info-vehiculos.component.html',
-  styleUrl: './info-vehiculos.component.css'
+    selector: 'app-info-vehiculos',
+    standalone: true,
+    templateUrl: './info-vehiculos.component.html',
+    styleUrl: './info-vehiculos.component.css',
+    imports: [CommonModule, FooterComponent]
 })
 export class InfoVehiculosComponent implements OnInit {
   vehiculoData: any;

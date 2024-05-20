@@ -4,14 +4,14 @@ import { HeaderComponent } from '../header/header.component';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { log } from 'node:console';
+import { FooterComponent } from "../footer/footer.component";
 
 @Component({
-  selector: 'app-crearevento',
-  standalone: true,
-  templateUrl: './eventos.component.html',
-  styleUrl: './eventos.component.css',
-  imports: [HeaderComponent, FormsModule, RouterModule, CommonModule]
+    selector: 'app-crearevento',
+    standalone: true,
+    templateUrl: './eventos.component.html',
+    styleUrl: './eventos.component.css',
+    imports: [HeaderComponent, FormsModule, RouterModule, CommonModule, FooterComponent]
 })
 export class EventosComponent implements OnInit {
 
@@ -125,7 +125,6 @@ export class EventosComponent implements OnInit {
         const mesEvento = fechaEvento.getMonth() + 1; // Sumamos 1 porque los meses van de 0 a 11
         const anioEvento = fechaEvento.getFullYear();
 
-
         console.log(mesEvento == this.mesSeleccionado && anioEvento == this.anioSeleccionado);
 
         return mesEvento == this.mesSeleccionado && anioEvento == this.anioSeleccionado;
@@ -144,4 +143,7 @@ export class EventosComponent implements OnInit {
     return [anioActual, anioActual + 1, anioActual + 2, anioActual + 3];
   }
 
+  eliminarFiltros() {
+    this.eventos = [...this.eventosOriginales];
+  }
 }

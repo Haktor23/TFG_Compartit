@@ -3,15 +3,17 @@ import { Router, RouterModule } from '@angular/router';
 import { FirebaseService } from '../../firebase.service';
 import { HeaderComponent } from '../header/header.component';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { FooterComponent } from "../footer/footer.component";
 
 @Component({
-  selector: 'app-eventos-realizados',
-  standalone: true,
-  imports: [HeaderComponent, FormsModule, RouterModule],
-  templateUrl: './eventos-realizados.component.html',
-  styleUrl: './eventos-realizados.component.css'
+    selector: 'app-eventos-realizados',
+    standalone: true,
+    templateUrl: './eventos-realizados.component.html',
+    styleUrl: './eventos-realizados.component.css',
+    imports: [HeaderComponent, FormsModule, RouterModule, CommonModule, FooterComponent]
 })
-export class EventosRealizadosComponent  implements OnInit {
+export class EventosRealizadosComponent implements OnInit {
 
   eventos: any[] = [];
   eventosOriginales: any[] = []; // Mantener una copia de respaldo de todos los eventos originales
@@ -75,7 +77,9 @@ export class EventosRealizadosComponent  implements OnInit {
     }
   }
 
-
+  eliminarFiltros() {
+    this.eventos = [...this.eventosOriginales];
+  }
 
 
 

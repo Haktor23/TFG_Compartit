@@ -1,13 +1,14 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { FirebaseService } from '../../firebase.service';
+import { FooterComponent } from "../footer/footer.component";
 
 @Component({
-  selector: 'app-info-animales',
-  standalone: true,
-  imports: [RouterModule],
-  templateUrl: './info-animales.component.html',
-  styleUrl: './info-animales.component.css'
+    selector: 'app-info-animales',
+    standalone: true,
+    templateUrl: './info-animales.component.html',
+    styleUrl: './info-animales.component.css',
+    imports: [RouterModule, FooterComponent]
 })
 export class InfoAnimalesComponent implements OnInit {
   animalId: string;
