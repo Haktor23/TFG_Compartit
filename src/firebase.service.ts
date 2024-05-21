@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import { log } from 'console';
 import { initializeApp } from "firebase/app";
-import { UserCredential, getAuth, signInWithEmailAndPassword } from 'firebase/auth';
-import { getDatabase, ref, child, get, set, query, orderByKey, limitToLast, push, remove } from "firebase/database";
+import { UserCredential, getAuth, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { getDatabase, ref, child, get, set, push, remove } from "firebase/database";
 import { Observable, from } from 'rxjs';
 import { firebaseConfig } from './environments/environment';
 
@@ -31,21 +30,32 @@ export class FirebaseService {
   }
 
   /*Deu retornar una promesa*/
-
   login = (email: string, password: string) => {
     const auth = getAuth();
-    signInWithEmailAndPassword(auth, email, password)
+    return signInWithEmailAndPassword(auth, email, password)
       .then((userCredential: UserCredential) => {
         console.log("Inicio de sesión exitoso");
         const user = userCredential.user;
+        return user;
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
         console.error("Error durante el inicio de sesión:", errorCode, errorMessage);
+        throw error;
+      });
+  };
+
+  logout() {
+    const auth = getAuth();
+    return signOut(auth)
+      .then(() => {
+        console.log('Sesión cerrada exitosamente');
+      })
+      .catch((error) => {
+        console.error('Error al cerrar sesión:', error);
       });
   }
-
 
   obtenerEventos() {
     const dbRef = ref(this.database);

@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/f030b9e3-eecd-4742-9d27-505e9f41bbcf/resourceGroups/hector-tfg_group/providers/Microsoft.Web/sites/hector-tfg",
+    "appService.deploySubpath": "dist\\tfghector"
+}
