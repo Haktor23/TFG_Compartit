@@ -12,15 +12,17 @@
 
 
   <nav class="paramv">
-    <ul>
+    <ul style="display: flex; justify-content: center;">
       <li><a routerLink="/">Inicio</a></li>
       <li><a routerLink="/crearevento">Crear Eventos</a></li>
       <li><a routerLink="/evento">Eventos</a></li>
     </ul>
-    <ul style="padding-top:5px ;">
+    <ul style=" display: flex; justify-content: center;">
       <li><a routerLink="/animales">Animales</a></li>
       <li><a routerLink="/vehiculos">Vehículos</a></li>
-      <li><a (click)="logout()" style="color: red;">Cerrar Sesión</a></li>
+    </ul>
+    <ul style="">
+      <li><a (click)="logout()" style="color: red; display: flex; justify-content: center;">Cerrar Sesión</a></li>
     </ul>
 
   </nav>

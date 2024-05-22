@@ -1,74 +1,76 @@
 <app-header></app-header>
-<div class="container">
-    <form class="modern-form" #creareventoForm="ngForm" [formGroup]="form">
-        <h3 class="titulo">Crear eventos:</h3>
-        <!-- Campo para añadir día, mes y año -->
-        <div class="form-row">
-            <div class="col">
-                <label for="fecha">Fecha:</label>
-                <input type="date" id="fecha" name="fecha" formControlName="fecha" required>
+<div class="containerprincipal" style="height: 91vh;">
+    <div class="container">
+        <form class="modern-form" #creareventoForm="ngForm" [formGroup]="form">
+            <h3 class="titulo">Crear eventos:</h3>
+            <!-- Campo para añadir día, mes y año -->
+            <div class="form-row">
+                <div class="col">
+                    <label for="fecha">Fecha:</label>
+                    <input type="date" id="fecha" name="fecha" formControlName="fecha" required>
+                </div>
+                <div class="col">
+                    <label for="hora">Hora:</label>
+                    <input type="time" id="hora" name="hora" formControlName="hora" required>
+                </div>
             </div>
-            <div class="col">
-                <label for="hora">Hora:</label>
-                <input type="time" id="hora" name="hora" formControlName="hora" required>
-            </div>
-        </div>
 
-        <!-- Campo para Nombre del espectáculo -->
-        <label for="nombreEspectaculo">Nombre del espectáculo:</label>
-        <select id="nombreEspectaculo" name="nombreEspectaculo" formControlName="nombreEspectaculo" required>
-            <option value="">Seleccionar espectáculo</option>
-            <option value="Suelta de vaquillas">Suelta de vaquillas</option>
-            <option value="Suelta de vaquillas y toro embolado">Suelta de vaquillas y toro embolado</option>
-            <option value="Suelta de vaquillas y toro en puntas">Suelta de vaquillas y toro en puntas</option>
-            <option value="Toro embolado">Toro embolado</option>
-            <option value="Concurso de ganaderías">Concurso de ganaderías</option>
-            <option value="Vaca embolada">Vaca embolada</option>
-            <option value="Toro en cuerda">Toro en cuerda</option>
-            <option value="Concurso de recortadores">Concurso de recortadores</option>
-            <option value="Evento especial">Evento especial</option>
-        </select>
+            <!-- Campo para Nombre del espectáculo -->
+            <label for="nombreEspectaculo">Nombre del espectáculo:</label>
+            <select id="nombreEspectaculo" name="nombreEspectaculo" formControlName="nombreEspectaculo" required>
+                <option value="">Seleccionar espectáculo</option>
+                <option value="Suelta de vaquillas">Suelta de vaquillas</option>
+                <option value="Suelta de vaquillas y toro embolado">Suelta de vaquillas y toro embolado</option>
+                <option value="Suelta de vaquillas y toro en puntas">Suelta de vaquillas y toro en puntas</option>
+                <option value="Toro embolado">Toro embolado</option>
+                <option value="Concurso de ganaderías">Concurso de ganaderías</option>
+                <option value="Vaca embolada">Vaca embolada</option>
+                <option value="Toro en cuerda">Toro en cuerda</option>
+                <option value="Concurso de recortadores">Concurso de recortadores</option>
+                <option value="Evento especial">Evento especial</option>
+            </select>
 
-        <!-- Campo para Pueblo y Ubicación -->
-        <div class="form-row">
-            <div class="col">
-                <label for="pueblo">Pueblo:</label>
-                <input type="text" id="pueblo" name="pueblo" formControlName="pueblo" required>
+            <!-- Campo para Pueblo y Ubicación -->
+            <div class="form-row">
+                <div class="col">
+                    <label for="pueblo">Pueblo:</label>
+                    <input type="text" id="pueblo" name="pueblo" formControlName="pueblo" required>
+                </div>
+                <div class="col">
+                    <label for="ubicacion">Ubicación:</label>
+                    <input type="text" id="ubicacion" name="ubicacion" formControlName="ubicacion" required>
+                </div>
             </div>
-            <div class="col">
-                <label for="ubicacion">Ubicación:</label>
-                <input type="text" id="ubicacion" name="ubicacion" formControlName="ubicacion" required>
-            </div>
-        </div>
 
-        <!-- Campos adicionales del segundo formulario -->
-        <div class="form-row">
-            <div class="col">
-                <label for="vacas">Vacas:</label>
-                <input type="number" id="vacas" name="vacas" formControlName="vacas" class="numeroanimales">
+            <!-- Campos adicionales del segundo formulario -->
+            <div class="form-row">
+                <div class="col">
+                    <label for="vacas">Vacas:</label>
+                    <input type="number" id="vacas" name="vacas" formControlName="vacas" class="numeroanimales">
+                </div>
+                <div class="col">
+                    <label for="toro">Toros:</label>
+                    <input type="number" id="toro" name="toro" formControlName="toro" class="numeroanimales">
+                </div>
+                <div class="col">
+                    <label for="capon">Capones:</label>
+                    <input type="number" id="capon" name="capon" formControlName="capon" class="numeroanimales">
+                </div>
             </div>
-            <div class="col">
-                <label for="toro">Toros:</label>
-                <input type="number" id="toro" name="toro" formControlName="toro" class="numeroanimales">
-            </div>
-            <div class="col">
-                <label for="capon">Capon:</label>
-                <input type="number" id="capon" name="capon" formControlName="capon" class="numeroanimales">
-            </div>
-        </div>
 
-        <div class="form-group">
-            <label for="otros">Información adicional:</label>
-            <input type="text" id="otros" name="otros" formControlName="otros">
-        </div>
-        <div class="form-group">
-            <label for="precio">Precio:</label>
-            <input type="number" id="precio" name="precio" formControlName="precio">
-        </div>
+            <div class="form-group">
+                <label for="otros">Información adicional:</label>
+                <input type="text" id="otros" name="otros" formControlName="otros">
+            </div>
+            <div class="form-group">
+                <label for="precio">Precio:</label>
+                <input type="number" id="precio" name="precio" formControlName="precio">
+            </div>
 
-        <button (click)="crearevento()" class="btn btn-success realizado">Guardar</button>
-    </form>
-    <div class="espaciador"></div>
+            <button (click)="crearevento()" class="btn btn-success realizado">Guardar</button>
+        </form>
+        <div class="espaciador"></div>
+    </div>
+
+    <app-footer></app-footer>
 </div>
-
-<app-footer></app-footer>

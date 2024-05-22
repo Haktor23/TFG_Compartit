@@ -7,16 +7,23 @@
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  background-image: url(./assets/BG2.jpg);
+  background-image: url(./assets/BG10.jpg);
   background-color: grey;
 
 }
 
 body {
   margin: 0;
+
 }
 
+.containerprincipal {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  position: relative;
 
+}
 
 ::-webkit-scrollbar {
   width: 12px;

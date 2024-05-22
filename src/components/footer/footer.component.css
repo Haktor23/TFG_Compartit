@@ -1,12 +1,7 @@
 footer {
-    margin-top: 200px;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
     display: flex;
     justify-content: center;
-    align-items: flex-end;
     background-color: rgb(43, 42, 42);
     color: white;
+    height: 3.5em;
 }

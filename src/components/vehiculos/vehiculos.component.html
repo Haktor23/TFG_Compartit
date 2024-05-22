@@ -1,113 +1,115 @@
 <app-header></app-header>
 <!-- Mostrar vehículos -->
-<div class="container">
-    <div class="tituloanimales">
-        <h3 class="titulo borde-gris">Lista de Vehículos</h3>
-    </div>
+<div class="containerprincipal" style="height: 91vh;">
+    <div class="container">
+        <div class="tituloanimales">
+            <h3 class="titulo borde-gris">Lista de Vehículos</h3>
+        </div>
 
-    <div class="tablaVehiculosGrande">
-        <table>
-            <thead>
+        <div class="tablaVehiculosGrande">
+            <table>
+                <thead>
 
-                <tr>
-                    <th>Modelo Vehículo</th>
-                    <th>Matrícula</th>
-                    <th>Número de Bastidor</th>
-                    <th>Kilómetros</th>
-                    <th>Próxima ITV</th>
-                    <th>Observaciones</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                @for (vehiculo of vehiculos; track $index) {
-                <tr>
-                    <td>{{ vehiculo.modeloVehiculo }}</td>
-                    <td>{{ vehiculo.matricula }}</td>
-                    <td>{{ vehiculo.numeroBastidor }}</td>
-                    <td>{{ vehiculo.km }}</td>
-                    <td>{{ vehiculo.proximaItv }}</td>
-                    <td>{{ vehiculo.observaciones }}</td>
-                    <td><button (click)="infoVehiculo(vehiculo.id)" class="editar">Informacion</button></td>
-                </tr>
-                }
-            </tbody>
-        </table>
-    </div>
-
-    <div class="tablaVehiculosMovil">
-        <table>
-            <tbody>
-                @for (vehiculo of vehiculos; track $index) {
-                <div class="borde">
                     <tr>
-                        <th>Modelo Vehículo:</th>
-                        <td> {{ vehiculo.modeloVehiculo }}</td>
+                        <th>Modelo Vehículo</th>
+                        <th>Matrícula</th>
+                        <th>Número de Bastidor</th>
+                        <th>Kilómetros</th>
+                        <th>Próxima ITV</th>
+                        <th>Observaciones</th>
+                        <th></th>
                     </tr>
+                </thead>
+                <tbody>
+                    @for (vehiculo of vehiculos; track $index) {
                     <tr>
-                        <th>Matrícula:</th>
-                        <td> {{ vehiculo.matricula }}</td>
-                    </tr>
-                    <tr>
-                        <th>Número de Bastidor:</th>
+                        <td>{{ vehiculo.modeloVehiculo }}</td>
+                        <td>{{ vehiculo.matricula }}</td>
                         <td>{{ vehiculo.numeroBastidor }}</td>
-                    </tr>
-                    <tr>
-                        <th>Kilómetros:</th>
                         <td>{{ vehiculo.km }}</td>
-                    </tr>
-                    <tr>
-                        <th>Próxima ITV:</th>
                         <td>{{ vehiculo.proximaItv }}</td>
-                    </tr>
-                    <tr>
-                        <th>Observaciones:</th>
                         <td>{{ vehiculo.observaciones }}</td>
-                    </tr>
-                    <tr>
                         <td><button (click)="infoVehiculo(vehiculo.id)" class="editar">Informacion</button></td>
                     </tr>
-                </div>
-                }
-            </tbody>
-        </table>
-    </div>
-    <!-- Formulario para añadir vehículos -->
+                    }
+                </tbody>
+            </table>
+        </div>
 
-    <div class="estilobotonForm">
-        @if(mostrarFormulario==false){
-        <button (click)="toggleFormulario()" class="boton-formulario">Mostrar formulario añadir vehículos</button>
-        }@else{
-        <button (click)="toggleFormulario()" class="boton-formulario">Cerrar Formulario</button>
+        <div class="tablaVehiculosMovil">
+            <table>
+                <tbody>
+                    @for (vehiculo of vehiculos; track $index) {
+                    <div class="borde">
+                        <tr>
+                            <th>Modelo Vehículo:</th>
+                            <td> {{ vehiculo.modeloVehiculo }}</td>
+                        </tr>
+                        <tr>
+                            <th>Matrícula:</th>
+                            <td> {{ vehiculo.matricula }}</td>
+                        </tr>
+                        <tr>
+                            <th>Número de Bastidor:</th>
+                            <td>{{ vehiculo.numeroBastidor }}</td>
+                        </tr>
+                        <tr>
+                            <th>Kilómetros:</th>
+                            <td>{{ vehiculo.km }}</td>
+                        </tr>
+                        <tr>
+                            <th>Próxima ITV:</th>
+                            <td>{{ vehiculo.proximaItv }}</td>
+                        </tr>
+                        <tr>
+                            <th>Observaciones:</th>
+                            <td>{{ vehiculo.observaciones }}</td>
+                        </tr>
+                        <tr>
+                            <td><button (click)="infoVehiculo(vehiculo.id)" class="editar">Informacion</button></td>
+                        </tr>
+                    </div>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <!-- Formulario para añadir vehículos -->
+
+        <div class="estilobotonForm">
+            @if(mostrarFormulario==false){
+            <button (click)="toggleFormulario()" class="boton-formulario">Mostrar formulario añadir vehículos</button>
+            }@else{
+            <button (click)="toggleFormulario()" class="boton-formulario">Cerrar Formulario</button>
+            }
+        </div>
+
+        @if (mostrarFormulario) {
+        <form (ngSubmit)="agregarVehiculo()" #vehiculoForm="ngForm">
+            <h3 class="titulo"> Añadir vehículos:</h3>
+            <label>Modelo Vehículo:</label>
+            <input type="text" name="modeloVehiculo" [(ngModel)]="nuevoVehiculo.modeloVehiculo" required>
+
+            <label>Matrícula:</label>
+            <input type="text" name="matricula" [(ngModel)]="nuevoVehiculo.matricula" required>
+
+            <label>Número de Bastidor:</label>
+            <input type="text" name="numeroBastidor" [(ngModel)]="nuevoVehiculo.numeroBastidor" required>
+
+            <label>Kilómetros:</label>
+            <input type="number" name="km" [(ngModel)]="nuevoVehiculo.km" required>
+
+            <label>Próxima ITV:</label>
+            <input type="date" name="proximaItv" [(ngModel)]="nuevoVehiculo.proximaItv" required>
+
+            <label>Observaciones:</label>
+            <textarea name="observaciones" [(ngModel)]="nuevoVehiculo.observaciones"></textarea>
+
+            <button type="submit" [disabled]="vehiculoForm.invalid" class="realizado">Añadir Vehículo</button>
+        </form>
         }
+
+
     </div>
 
-    @if (mostrarFormulario) {
-    <form (ngSubmit)="agregarVehiculo()" #vehiculoForm="ngForm">
-        <h3 class="titulo"> Añadir vehículos:</h3>
-        <label>Modelo Vehículo:</label>
-        <input type="text" name="modeloVehiculo" [(ngModel)]="nuevoVehiculo.modeloVehiculo" required>
-
-        <label>Matrícula:</label>
-        <input type="text" name="matricula" [(ngModel)]="nuevoVehiculo.matricula" required>
-
-        <label>Número de Bastidor:</label>
-        <input type="text" name="numeroBastidor" [(ngModel)]="nuevoVehiculo.numeroBastidor" required>
-
-        <label>Kilómetros:</label>
-        <input type="number" name="km" [(ngModel)]="nuevoVehiculo.km" required>
-
-        <label>Próxima ITV:</label>
-        <input type="date" name="proximaItv" [(ngModel)]="nuevoVehiculo.proximaItv" required>
-
-        <label>Observaciones:</label>
-        <textarea name="observaciones" [(ngModel)]="nuevoVehiculo.observaciones"></textarea>
-
-        <button type="submit" [disabled]="vehiculoForm.invalid" class="realizado">Añadir Vehículo</button>
-    </form>
-    }
-</div>
-
-<div class="footer">
     <app-footer></app-footer>
 </div>
