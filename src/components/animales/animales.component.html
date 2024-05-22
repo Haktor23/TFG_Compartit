@@ -1,18 +1,12 @@
 <app-header></app-header>
 
 <div class="centrador">
-
-
   <div class="container">
-
     <div class="tituloanimales">
       <h3 class="titulo borde-gris">Lista de animales</h3>
     </div>
 
-
-
     <div class="row-animales">
-
       <div class="toros">
         <h4 class="titulo">Toros</h4>
         <input type="text" [(ngModel)]="busquedatoro" placeholder="Buscar...">
@@ -21,20 +15,20 @@
           <option value="numero">Número</option>
           <option value="guarismo">Guarismo</option>
         </select>
-        @for (animal of filtrarAnimalesToro(); track $index){
-        @if (animal.datos.genero=="toro" || animal.datos.genero=="Toro" && animal.datos.lesion==false ||
-        animal.datos.genero=="capon" || animal.datos.genero=="Capon") {
+        @for (animal of filtrarAnimalesToro(); track $index) {
+        @if (animal.datos.genero == "toro" || animal.datos.genero == "Toro" && animal.datos.lesion == false ||
+        animal.datos.genero == "capon" || animal.datos.genero == "Capon") {
 
         <div class="toro">
           <p>Nombre: {{animal.datos.nombre}}</p>
-          <p>Numero: {{animal.datos.numero}}</p>
+          <p>Número: {{animal.datos.numero}}</p>
           <p>Guarismo: {{animal.datos.guarismo}}</p>
-          <button (click)="verInformacion(animal.id) " class="editar">Informacion</button>
+          <button (click)="verInformacion(animal.id)" class="editar">Información</button>
         </div>
         }
         }
-
       </div>
+
       <div class="vacas">
         <h4 class="titulo">Vacas</h4>
         <input type="text" [(ngModel)]="busquedavaca" placeholder="Buscar...">
@@ -46,49 +40,47 @@
         </select>
 
         @for (animal of filtrarAnimalesVaca(); track $index) {
-        @if (animal.datos.genero=="vaca" || animal.datos.genero=="Vaca"&& animal.datos.lesion==false) {
+        @if (animal.datos.genero == "vaca" || animal.datos.genero == "Vaca" && animal.datos.lesion == false) {
 
         <div class="vaca">
           <p>Nombre: {{animal.datos.nombre}}</p>
-          <p>Numero: {{animal.datos.numero}}</p>
+          <p>Número: {{animal.datos.numero}}</p>
           <p>Guarismo: {{animal.datos.guarismo}}</p>
-          <button (click)="verInformacion(animal.id)" class="editar">Informacion</button>
+          <button (click)="verInformacion(animal.id)" class="editar">Información</button>
         </div>
         }
         }
       </div>
     </div>
 
-
     <div class="espaciador">
       <br>
     </div>
+
     <!--**********************LESION**********************-->
 
     <div class="lesionados">
       <h4 class="titulo">Animales lesionados</h4>
       @for (animal of animales; track $index) {
-      @if (animal.datos.lesion==true) {
+      @if (animal.datos.lesion == true) {
       <div class="lesiones">
         <p>Nombre: {{animal.datos.nombre}}</p>
-        <p>Numero: {{animal.datos.numero}}</p>
+        <p>Número: {{animal.datos.numero}}</p>
         <p>Guarismo: {{animal.datos.guarismo}}</p>
-        <p>Genero: {{animal.datos.genero}}</p>
+        <p>Género: {{animal.datos.genero}}</p>
         <button (click)="marcarAnimalComoCurado(animal.id)" class="realizado">Curado</button>
       </div>
       }
       }
-
     </div>
 
     <div class="estilobotonForm">
-      @if(mostrarFormulario==false){
+      @if(mostrarFormulario == false) {
       <button (click)="toggleFormulario()" class="boton-formulario">Mostrar formulario añadir animales</button>
-      }@else{
+      } @else {
       <button (click)="toggleFormulario()" class="boton-formulario">Cerrar Formulario</button>
       }
     </div>
-
 
     @if (mostrarFormulario) {
     <form #animalForm="ngForm" class="formularioCrearAnimal" (ngSubmit)="crearAnimal(animalForm)" novalidate>
@@ -165,7 +157,6 @@
       <button type="submit" class="btn btn-primary realizado" [disabled]="animalForm.invalid">Crear Animal</button>
     </form>
     }
-
   </div>
 </div>
 <app-footer></app-footer>

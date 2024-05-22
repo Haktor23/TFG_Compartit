@@ -1,5 +1,5 @@
 <div class="container">
-    <h2>Editar Animal</h2>
+    <h2>Editar animal</h2>
     <form #editAnimalForm="ngForm" (ngSubmit)="guardarCambios()">
         <div class="form-group">
             <label for="crotal">Crotal</label>
@@ -18,7 +18,7 @@
             <select class="form-control" id="genero" name="genero" required [(ngModel)]="animalData.genero">
                 <option value="Toro">Toro</option>
                 <option value="Vaca">Vaca</option>
-                <option value="Capon">Capon</option>
+                <option value="Capon">Capón</option>
             </select>
         </div>
         <div class="form-group">
@@ -26,7 +26,7 @@
             <input type="file" class="form-control-file" id="imagen" name="imagen" (change)="onFileSelected($event)">
         </div>
         <button type="submit" class="btn btn-primary">Guardar Cambios</button>
-        
+
     </form>
 </div>
 <app-footer></app-footer>

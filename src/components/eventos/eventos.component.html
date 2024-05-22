@@ -33,7 +33,7 @@
 
         <div *ngIf="eventos.length === 0">
             <h1>No hay eventos para esta fecha: <button class="eliminar" (click)="eliminarFiltros()">Eliminar
-                    Filtros</button>
+                    filtros</button>
             </h1>
 
         </div>
@@ -48,8 +48,8 @@
                 <div class="datos1">
                     <h4>Hora: {{ item.datos.hora}}</h4>
                     <h4>Pueblo: {{ item.datos.pueblo}}</h4>
-                    <h4>Ubicación: <a href="{{ item.datos.ubicacion}}">Ubicacion</a></h4>
-                    <h4>Espectaculo: {{ item.datos.nombreEspectaculo}}</h4>
+                    <h4>Ubicación: <a href="{{ item.datos.ubicacion}}">Ubicación</a></h4>
+                    <h4>Espectáculo: {{ item.datos.nombreEspectaculo}}</h4>
                 </div>
                 <div class="datos2">
                     <h4>Vacas: {{ item.datos.vacas}}</h4>

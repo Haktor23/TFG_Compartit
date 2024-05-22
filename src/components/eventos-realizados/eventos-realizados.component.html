@@ -9,7 +9,7 @@
 
         <div class="opciones">
             <div class="filtroDia" style="display: flex;">
-                <label for="fechadia">Selecciona el dia para ver los eventos: </label>
+                <label for="fechadia">Selecciona el día para ver los eventos: </label>
                 <input type="date" [(ngModel)]="fechaSeleccionada" (change)="filtrarPorFecha()">
             </div>
             <button class="botonazul" [routerLink]="['/evento']" routerLinkActive="router-link-active">Volver a
