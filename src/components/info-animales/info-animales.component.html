@@ -1,24 +1,28 @@
-<div class="container">
-    <div class="image-container">
-        <img [src]="animalData?.imagen" alt="Imagen del animal">
+<div class="containerprincipal">
+    <div class="container">
+        <div class="image-container">
+            <img [src]="animalData?.imagen" alt="Imagen del animal">
+        </div>
+        <div class="separator"></div>
+        <div class="data-container">
+            <h2>Datos</h2>
+            <ul>
+                <li><strong>Crotal:</strong> {{animalData?.crotal}}</li>
+                <li><strong>Nombre:</strong> {{animalData?.nombre}}</li>
+                <li><strong>Número:</strong> {{animalData?.numero}}</li>
+                <li><strong>Género:</strong> {{animalData?.genero}}</li>
+                <li><strong>Guarismo:</strong> {{animalData?.guarismo}}</li>
+                <div class="botonesAnimales">
+                    <button (click)="eliminarAnimal(animalId)" class="eliminar">Eliminar</button>
+                    <button (click)="marcarComoLesionado(animalId)" class="editar">Lesionado</button>
+                    <button (click)="editarAnimal(animalId)" class="editar">Editar</button>
+                    <button [routerLink]="['/animales']" routerLinkActive="router-link-active"
+                        class="volver">Volver</button>
+                </div>
+            </ul>
+        </div>
     </div>
-    <div class="separator"></div>
-    <div class="data-container">
-        <h2>Datos</h2>
-        <ul>
-            <li><strong>Crotal:</strong> {{animalData?.crotal}}</li>
-            <li><strong>Nombre:</strong> {{animalData?.nombre}}</li>
-            <li><strong>Número:</strong> {{animalData?.numero}}</li>
-            <li><strong>Género:</strong> {{animalData?.genero}}</li>
-            <li><strong>Guarismo:</strong> {{animalData?.guarismo}}</li>
-            <div class="botonesAnimales">
-                <button (click)="eliminarAnimal(animalId)" class="eliminar">Eliminar</button>
-                <button (click)="marcarComoLesionado(animalId)" class="editar">Lesionado</button>
-                <button (click)="editarAnimal(animalId)" class="editar">Editar</button>
-                <button [routerLink]="['/animales']" routerLinkActive="router-link-active"
-                    class="volver">Volver</button>
-            </div>
-        </ul>
+    <div class="piepag">
+        <app-footer></app-footer>
     </div>
 </div>
-<app-footer></app-footer>

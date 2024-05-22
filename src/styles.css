@@ -189,3 +189,14 @@ body {
   font-weight: bold;
   background-color: rgb(63, 63, 211);
 }
+
+.piepag {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  background-color: rgb(43, 42, 42);
+}

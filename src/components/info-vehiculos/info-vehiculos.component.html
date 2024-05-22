@@ -1,21 +1,25 @@
-<div class="container">
-    <div class="image-container">
-        <!-- Aquí puedes agregar la lógica para mostrar la imagen del vehículo -->
+<div class="containerprincipal">
+    <div class="container">
+        <div class="image-container">
+            <!-- Aquí puedes agregar la lógica para mostrar la imagen del vehículo -->
+        </div>
+        <div class="separator"></div>
+        <div class="data-container">
+            <h2>Datos</h2>
+            <button (click)="volverVerVehiculos()" class="realizado">Volver a Vehículos</button>
+            <ul *ngIf=" vehiculoId">
+                <li><strong>Modelo:</strong> {{ vehiculoData?.modeloVehiculo }}</li>
+                <li><strong>Matrícula:</strong> {{ vehiculoData?.matricula }}</li>
+                <li><strong>Número de Bastidor:</strong> {{ vehiculoData?.numeroBastidor }}</li>
+                <li><strong>Kilómetros:</strong> {{ vehiculoData?.km }}</li>
+                <li><strong>Próxima ITV:</strong> {{ vehiculoData?.proximaItv }}</li>
+                <li><strong>Observaciones:</strong> {{ vehiculoData?.observaciones }}</li>
+                <button (click)="eliminarVehiculo(vehiculoId)" class="eliminar" style="margin: 5px;">Eliminar</button>
+                <button (click)="editarVehiculo(vehiculoId)" class="editar">Editar</button>
+            </ul>
+        </div>
     </div>
-    <div class="separator"></div>
-    <div class="data-container">
-        <h2>Datos</h2>
-        <button (click)="volverVerVehiculos()">Volver a Vehículos</button>
-        <ul *ngIf="vehiculoId">
-            <li><strong>Modelo:</strong> {{ vehiculoData?.modeloVehiculo }}</li>
-            <li><strong>Matrícula:</strong> {{ vehiculoData?.matricula }}</li>
-            <li><strong>Número de Bastidor:</strong> {{ vehiculoData?.numeroBastidor }}</li>
-            <li><strong>Kilómetros:</strong> {{ vehiculoData?.km }}</li>
-            <li><strong>Próxima ITV:</strong> {{ vehiculoData?.proximaItv }}</li>
-            <li><strong>Observaciones:</strong> {{ vehiculoData?.observaciones }}</li>
-            <button (click)="eliminarVehiculo(vehiculoId)" class="eliminar">Eliminar</button>
-            <button (click)="editarVehiculo(vehiculoId)" class="editar">Editar</button>
-        </ul>
+    <div class="piepag">
+        <app-footer></app-footer>
     </div>
 </div>
-<app-footer></app-footer>

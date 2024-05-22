@@ -3,13 +3,14 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FirebaseService } from '../../firebase.service';
 import { FormsModule } from '@angular/forms';
 import { FooterComponent } from "../footer/footer.component";
+import { HeaderComponent } from "../header/header.component";
 
 @Component({
     selector: 'app-editar-vehiculo',
     standalone: true,
     templateUrl: './editar-vehiculo.component.html',
     styleUrl: './editar-vehiculo.component.css',
-    imports: [FormsModule, FooterComponent]
+    imports: [FormsModule, FooterComponent, HeaderComponent]
 })
 export class EditarVehiculoComponent implements OnInit {
   vehiculoId: string;

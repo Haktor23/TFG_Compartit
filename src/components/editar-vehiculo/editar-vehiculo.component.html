@@ -1,29 +1,33 @@
-<div class="container">
-    <h2>Editar vehículo</h2>
-    <div class="form-group">
-        <label for="modelo">Modelo:</label>
-        <input type="text" class="form-control" id="modelo" [(ngModel)]="vehiculoData.modeloVehiculo">
+<div class="containerprincipal">
+    <div class="container">
+        <h2>Editar vehículo</h2>
+        <div class="form-group">
+            <label for="modelo">Modelo:</label>
+            <input type="text" class="form-control" id="modelo" [(ngModel)]="vehiculoData.modeloVehiculo">
+        </div>
+        <div class="form-group">
+            <label for="matrícula">Matrícula:</label>
+            <input type="text" class="form-control" id="matrícula" [(ngModel)]="vehiculoData.matricula">
+        </div>
+        <div class="form-group">
+            <label for="numeroBastidor">Número de bastidor:</label>
+            <input type="text" class="form-control" id="numeroBastidor" [(ngModel)]="vehiculoData.numeroBastidor">
+        </div>
+        <div class="form-group">
+            <label for="km">Kilómetros:</label>
+            <input type="text" class="form-control" id="km" [(ngModel)]="vehiculoData.km">
+        </div>
+        <div class="form-group">
+            <label for="proximaItv">Próxima ITV:</label>
+            <input type="text" class="form-control" id="proximaItv" [(ngModel)]="vehiculoData.proximaItv">
+        </div>
+        <div class="form-group">
+            <label for="observaciones">Observaciones:</label>
+            <textarea class="form-control" id="observaciones" [(ngModel)]="vehiculoData.observaciones"></textarea>
+        </div>
+        <button class="btn btn-primary realizado" (click)="guardarCambios()">Guardar cambios</button>
     </div>
-    <div class="form-group">
-        <label for="matrícula">Matrícula:</label>
-        <input type="text" class="form-control" id="matrícula" [(ngModel)]="vehiculoData.matricula">
+    <div class="piepag">
+        <app-footer></app-footer>
     </div>
-    <div class="form-group">
-        <label for="numeroBastidor">Número de bastidor:</label>
-        <input type="text" class="form-control" id="numeroBastidor" [(ngModel)]="vehiculoData.numeroBastidor">
-    </div>
-    <div class="form-group">
-        <label for="km">Kilómetros:</label>
-        <input type="text" class="form-control" id="km" [(ngModel)]="vehiculoData.km">
-    </div>
-    <div class="form-group">
-        <label for="proximaItv">Próxima ITV:</label>
-        <input type="text" class="form-control" id="proximaItv" [(ngModel)]="vehiculoData.proximaItv">
-    </div>
-    <div class="form-group">
-        <label for="observaciones">Observaciones:</label>
-        <textarea class="form-control" id="observaciones" [(ngModel)]="vehiculoData.observaciones"></textarea>
-    </div>
-    <button class="btn btn-primary realizado" (click)="guardarCambios()">Guardar cambios</button>
 </div>
-<app-footer></app-footer>
